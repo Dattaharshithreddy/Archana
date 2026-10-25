@@ -1,0 +1,57 @@
+import type { GitaNotes } from '../types';
+
+const ch13: GitaNotes = {
+  story: {
+    te: 'శరీరం ఒక పొలం (క్షేత్రం), దాన్ని తెలుసుకునే ఆత్మ క్షేత్రజ్ఞుడు (పొలం తెలిసినవాడు). అన్ని శరీరాల్లో క్షేత్రజ్ఞుడు భగవంతుడే. నిజమైన జ్ఞానం అంటే ఏమిటో 20 లక్షణాలుగా చెబుతాడు — వినయం, అహింస, ఓర్పు, గురుసేవ మొదలైనవి. ప్రకృతి (పదార్థం), పురుషుడు (చైతన్యం) రెండూ అనాది. సూర్యుడు ప్రపంచాన్ని ప్రకాశింపజేసినట్లు ఆత్మ శరీరాన్ని ప్రకాశింపజేస్తుంది, కానీ దేనికీ అంటుకోదు.',
+    en: 'The body is a “field” (kshetra), and the Self that knows it is the “knower of the field”. In all bodies, the knower is God. Krishna lists twenty marks of true knowledge — humility, non-violence, patience, service to the teacher and more. Nature (matter) and the Person (consciousness) are both beginningless. As the sun lights the whole world, the Self lights the body, yet nothing touches it.',
+  },
+  lessons: [
+    { te: 'నిజమైన జ్ఞానం పుస్తకాల్లో కాదు, ప్రవర్తనలో కనిపిస్తుంది — వినయం, నిజాయితీ, ఓర్పు, అహింస.', en: 'True knowledge shows not in books but in behaviour — humility, honesty, patience, non-violence.' },
+    { te: 'అన్ని ప్రాణుల్లో ఒకే భగవంతుడు ఉన్నాడని చూసేవాడు ఎవరికీ హాని చేయడు — తనకు తాను కూడా.', en: 'One who sees the same God in all beings harms no one — not even oneself.' },
+    { te: 'ఆకాశం అంతటా ఉన్నా దేనికీ అంటుకోనట్లు, మనలోని ఆత్మ కూడా శరీరపు బాధలకు అతీతమైనది.', en: 'As space is everywhere yet untouched, the Self within is beyond the troubles of the body.' },
+  ],
+  v: [
+    [1, 'Arjuna said: I wish to know about Nature and the Person, the field and the knower of the field, knowledge and the object of knowledge, Krishna.', 'అర్జునుడు: కేశవా! ప్రకృతి-పురుషుడు, క్షేత్రం-క్షేత్రజ్ఞుడు, జ్ఞానం-జ్ఞేయం — వీటి గురించి తెలుసుకోవాలనుకుంటున్నాను. (కొన్ని ప్రతుల్లో ఈ శ్లోకం ఉండదు.)'],
+    [2, 'Krishna said: This body, Arjuna, is called the field. One who knows it is called the knower of the field by those who know.', 'శ్రీకృష్ణుడు: కౌంతేయా! ఈ శరీరాన్ని క్షేత్రం (పొలం) అంటారు. దీన్ని తెలుసుకునేవాడిని క్షేత్రజ్ఞుడు అని జ్ఞానులు అంటారు.'],
+    [3, 'Know Me as the knower of the field in all fields, Arjuna. Knowledge of the field and its knower — that, in My view, is true knowledge.', 'భారతా! అన్ని క్షేత్రాల్లో (శరీరాల్లో) క్షేత్రజ్ఞుడిని నేనే అని తెలుసుకో. క్షేత్రం, క్షేత్రజ్ఞుల గురించిన జ్ఞానమే నిజమైన జ్ఞానమని నా అభిప్రాయం.'],
+    [4, 'Hear from Me briefly what the field is, what it is like, what changes it undergoes, where it comes from, who the knower is and what his powers are.', 'ఆ క్షేత్రం ఏమిటి, ఎలాంటిది, దానిలో ఏ మార్పులు ఉంటాయి, అది దేని నుండి వచ్చింది, క్షేత్రజ్ఞుడు ఎవరు, అతని ప్రభావం ఏమిటి — సంక్షిప్తంగా నా నుండి విను.'],
+    [5, 'This has been sung by sages in many ways, in various distinct hymns, and in the reasoned and conclusive aphorisms of the Brahma Sutras.', 'ఋషులు దీన్ని అనేక విధాలుగా, వేర్వేరు వేద మంత్రాల్లో గానం చేశారు. హేతుబద్ధమైన, నిశ్చయమైన బ్రహ్మసూత్రాల్లో కూడా వివరించారు.'],
+    [6, 'The great elements, ego, intellect and the unmanifest; the ten senses and the mind, and the five objects of the senses;', 'పంచ మహాభూతాలు, అహంకారం, బుద్ధి, అవ్యక్త ప్రకృతి, పది ఇంద్రియాలు, మనసు, ఐదు ఇంద్రియ విషయాలు;'],
+    [7, 'desire, aversion, pleasure, pain, the body, consciousness and steadiness — this, briefly, is the field with its changes.', 'కోరిక, ద్వేషం, సుఖం, దుఃఖం, శరీరం, చైతన్యం, ధైర్యం — ఇదే మార్పులతో కూడిన క్షేత్రం, సంక్షిప్తంగా.'],
+    [8, 'Humility, freedom from pretence, non-violence, patience, honesty, service to the teacher, purity, steadiness and self-control;', 'అభిమానం లేకపోవడం (వినయం), డాంబికం లేకపోవడం, అహింస, ఓర్పు, నిజాయితీ, గురుసేవ, శుచి, స్థిరత్వం, ఆత్మనిగ్రహం;'],
+    [9, 'detachment from sense-objects, absence of ego, and seeing the suffering and flaws in birth, death, old age and disease;', 'ఇంద్రియ విషయాల పట్ల వైరాగ్యం, అహంకారం లేకపోవడం, పుట్టుక, చావు, ముసలితనం, రోగాల్లోని దుఃఖాన్ని, దోషాన్ని గమనించడం;'],
+    [10, 'non-attachment, not clinging to children, spouse, home and the like, and constant evenness of mind in desired and undesired events;', 'ఆసక్తి లేకపోవడం, కొడుకులు, భార్య, ఇల్లు మొదలైనవాటిపై అతి మమకారం లేకపోవడం, ఇష్టమైనవి, అయిష్టమైనవి జరిగినప్పుడు ఎప్పుడూ సమచిత్తంతో ఉండడం;'],
+    [11, 'unwavering devotion to Me through single-minded yoga, love of solitude, and distaste for crowds;', 'అనన్య యోగంతో నా మీద చలించని భక్తి, ఏకాంత ప్రదేశాన్ని ఇష్టపడడం, జనసమూహాల్లో ఆసక్తి లేకపోవడం;'],
+    [12, 'constancy in knowledge of the Self and insight into the purpose of true knowledge — this is called knowledge, and what is opposed to it is ignorance.', 'ఆత్మజ్ఞానంలో నిత్యం నిలవడం, తత్త్వజ్ఞానం యొక్క లక్ష్యాన్ని గ్రహించడం — ఇదే జ్ఞానం. దీనికి భిన్నమైనదంతా అజ్ఞానం.'],
+    [13, 'I will describe that which is to be known, by knowing which one attains immortality — the beginningless supreme Brahman, which is said to be neither being nor non-being.', 'దేన్ని తెలుసుకుంటే అమృతత్వం లభిస్తుందో ఆ జ్ఞేయాన్ని చెబుతాను — అది ఆది లేని పరబ్రహ్మం, దాన్ని సత్తు అనీ అనలేం, అసత్తు అనీ అనలేం.'],
+    [14, 'Its hands and feet are everywhere; its eyes, heads and mouths are everywhere; its ears are everywhere. It exists enveloping everything in the world.', 'దాని చేతులు, కాళ్ళు అంతటా ఉన్నాయి; కళ్ళు, తలలు, ముఖాలు అంతటా ఉన్నాయి; చెవులు అంతటా ఉన్నాయి. లోకంలో అన్నింటినీ ఆవరించి ఉంది.'],
+    [15, 'It shines through the functions of all the senses, yet is free of all senses; unattached, yet supporting all; beyond the qualities, yet their enjoyer.', 'అన్ని ఇంద్రియాల గుణాల ద్వారా ప్రకాశిస్తుంది, కానీ దానికి ఇంద్రియాలు లేవు. దేనికీ అంటుకోదు, కానీ అన్నింటినీ పోషిస్తుంది. గుణాలు లేనిది, కానీ గుణాలను అనుభవిస్తుంది.'],
+    [16, 'It is outside and inside all beings, unmoving and moving. Being subtle, it is hard to know. It is far away and also very near.', 'అది ప్రాణుల బయటా ఉంది, లోపలా ఉంది. కదలనిదీ, కదిలేదీ అదే. సూక్ష్మమైనది కాబట్టి తెలుసుకోవడం కష్టం. అది చాలా దూరంగానూ ఉంది, చాలా దగ్గరగానూ ఉంది.'],
+    [17, 'Undivided, it appears divided among beings. Know it as the sustainer of beings, their devourer and their creator.', 'అది విభజించబడనిదైనా ప్రాణుల్లో విడివిడిగా ఉన్నట్లు కనిపిస్తుంది. ప్రాణులను పోషించేది, మింగేది, పుట్టించేది అదేనని తెలుసుకో.'],
+    [18, 'It is the light of all lights, said to be beyond darkness. It is knowledge, the object of knowledge and the goal of knowledge, seated in the hearts of all.', 'అది వెలుగులకే వెలుగు, చీకటికి అతీతమైనది. అదే జ్ఞానం, జ్ఞేయం (తెలుసుకోదగినది), జ్ఞానంతో పొందదగినది — అందరి హృదయాల్లో నిలిచి ఉంది.'],
+    [19, 'Thus the field, knowledge and the object of knowledge have been described briefly. Knowing this, My devotee becomes fit for My state.', 'ఇలా క్షేత్రం, జ్ఞానం, జ్ఞేయం సంక్షిప్తంగా చెప్పాను. నా భక్తుడు దీన్ని తెలుసుకుని నా స్వరూపాన్ని పొందడానికి అర్హుడవుతాడు.'],
+    [20, 'Know that both Nature and the Person are without beginning, and that changes and qualities are born of Nature.', 'ప్రకృతి, పురుషుడు రెండూ అనాదివని తెలుసుకో. మార్పులు, గుణాలు అన్నీ ప్రకృతి నుండే పుడతాయని తెలుసుకో.'],
+    [21, 'Nature is said to be the cause of the body, the instruments and action; the Person is said to be the cause of the experience of pleasure and pain.', 'కార్యం (శరీరం), కారణాలు (ఇంద్రియాలు), కర్తృత్వానికి ప్రకృతి కారణం. సుఖదుఃఖాలను అనుభవించడానికి పురుషుడు కారణం.'],
+    [22, 'The Person, seated in Nature, experiences the qualities born of Nature. Attachment to these qualities is the cause of its births in good and evil wombs.', 'ప్రకృతిలో ఉన్న పురుషుడు ప్రకృతి నుండి పుట్టిన గుణాలను అనుభవిస్తాడు. ఆ గుణాలతో సంగమే అతడు మంచి-చెడు జన్మల్లో పుట్టడానికి కారణం.'],
+    [23, 'The Supreme Person in this body is also called the witness, the one who consents, the supporter, the experiencer, the great Lord and the Supreme Self.', 'ఈ దేహంలో ఉన్న పరమపురుషుడిని సాక్షి, అనుమతించేవాడు, పోషించేవాడు, అనుభవించేవాడు, మహేశ్వరుడు, పరమాత్మ అని అంటారు.'],
+    [24, 'One who thus knows the Person and Nature with its qualities is not born again, whatever their way of life.', 'పురుషుడిని, గుణాలతో కూడిన ప్రకృతిని ఇలా తెలుసుకున్నవాడు ఎలా జీవిస్తున్నా మళ్ళీ పుట్టడు.'],
+    [25, 'Some see the Self within themselves through meditation; others through the path of knowledge; and others through the yoga of action.', 'కొందరు ధ్యానంతో తమలోనే ఆత్మను చూస్తారు; మరికొందరు జ్ఞానమార్గంతో; ఇంకొందరు కర్మయోగంతో.'],
+    [26, 'Others, not knowing this, worship having heard from others. They too, devoted to what they have heard, cross beyond death.', 'మరికొందరు ఇవేవీ తెలియక, ఇతరుల నుండి విని ఉపాసిస్తారు. విన్నదాన్నే నమ్మిన వాళ్ళు కూడా మృత్యువును దాటుతారు.'],
+    [27, 'Whatever is born, moving or unmoving, know that it arises from the union of the field and the knower of the field, Arjuna.', 'భరతశ్రేష్ఠా! చరాచరాల్లో ఏది పుట్టినా, అది క్షేత్రం, క్షేత్రజ్ఞుల కలయిక నుండే పుడుతుందని తెలుసుకో.'],
+    [28, 'One who sees the Supreme Lord dwelling equally in all beings, imperishable within the perishing, truly sees.', 'నశించే అన్ని ప్రాణుల్లో నశించకుండా సమానంగా నిలిచిన పరమేశ్వరుడిని చూసేవాడే నిజంగా చూస్తున్నవాడు.'],
+    [29, 'Seeing the same Lord present everywhere, one does not harm the Self by the self, and so reaches the supreme goal.', 'అంతటా సమానంగా ఉన్న ఈశ్వరుడిని చూసేవాడు తనను తాను హింసించుకోడు (ఎవరినీ హింసించడు), అందుకే పరమగతిని పొందుతాడు.'],
+    [30, 'One who sees that all actions are done by Nature alone, and that the Self is not the doer, truly sees.', 'కర్మలన్నీ ప్రకృతే చేస్తోందని, ఆత్మ కర్త కాదని చూసేవాడే నిజంగా చూస్తున్నవాడు.'],
+    [31, 'When one sees the separate existence of beings as resting in the One and spreading out from it, one attains Brahman.', 'ప్రాణుల వేర్వేరు రూపాలన్నీ ఒక్కదానిలోనే ఉన్నాయని, దాని నుండే విస్తరించాయని చూసినప్పుడు బ్రహ్మాన్ని పొందుతాడు.'],
+    [32, 'Being beginningless and beyond the qualities, this imperishable Supreme Self, though dwelling in the body, Arjuna, neither acts nor is touched.', 'కౌంతేయా! ఆది లేనిది, గుణాలు లేనిది కాబట్టి ఈ నాశనం లేని పరమాత్మ శరీరంలో ఉన్నా ఏమీ చేయదు, దేనికీ అంటుకోదు.'],
+    [33, 'As all-pervading space, being subtle, is not tainted, so the Self, present everywhere in the body, is not tainted.', 'అంతటా ఉన్న ఆకాశం సూక్ష్మమైనది కాబట్టి దేనికీ అంటుకోనట్లు, శరీరమంతా ఉన్న ఆత్మ కూడా దేనికీ అంటుకోదు.'],
+    [34, 'As the one sun lights up this whole world, so the Lord of the field lights up the whole field, Arjuna.', 'భారతా! ఒక్క సూర్యుడు ఈ లోకమంతటినీ ప్రకాశింపజేసినట్లు, క్షేత్రజ్ఞుడు (ఆత్మ) శరీరమంతటినీ ప్రకాశింపజేస్తాడు.'],
+    [35, 'Those who, with the eye of knowledge, see this difference between the field and its knower, and the freedom of beings from Nature, reach the Supreme.', 'జ్ఞానదృష్టితో క్షేత్రం, క్షేత్రజ్ఞుల మధ్య తేడాను, ప్రకృతి బంధం నుండి విముక్తిని తెలుసుకున్నవాళ్ళు పరమాత్మను చేరుకుంటారు.'],
+  ],
+  x: {
+    1: { te: 'ఈ శ్లోకం కొన్ని పాత ప్రతుల్లో మాత్రమే ఉంటుంది. అందుకే కొన్ని పుస్తకాల్లో గీతలో 700 శ్లోకాలు, కొన్నింటిలో 701 కనిపిస్తాయి.', en: 'This verse appears only in some editions, which is why some Gitas count 700 verses and others 701.' },
+    8: { te: '8 నుండి 12 శ్లోకాల్లో చెప్పిన 20 లక్షణాలు జ్ఞానానికి నిజమైన పరీక్ష. ఎంత చదివామని కాదు, ఎంత వినయంగా, దయగా ఉన్నామనేదే ముఖ్యం.', en: 'The twenty qualities in verses 8–12 are the real test of knowledge — not how much we have read, but how humble and kind we are.' },
+    34: { te: 'బల్బు వెలగాలంటే కరెంట్ కావాలి, కానీ బల్బు పగిలితే కరెంట్ నశించదు. శరీరానికి వెలుగు ఇచ్చేది ఆత్మ; శరీరం పోయినా ఆత్మ నిలిచే ఉంటుంది.', en: 'A bulb glows because of electricity, yet when the bulb breaks, electricity is not destroyed. The Self lights the body and remains when the body is gone.' },
+  },
+};
+
+export default ch13;

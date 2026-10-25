@@ -41,6 +41,13 @@ export const VerseCard = memo(function VerseCard({ verse, index, script, meaning
         </View>
       )}
 
+      {verse.speaker && (
+        <View style={styles.speaker}>
+          <Text style={[styles.speakerTe, { color: accent }]}>{verse.speaker.te}</Text>
+          <Text style={styles.speakerEn}>{verse.speaker.en}</Text>
+        </View>
+      )}
+
       {verse.te && (
         <View style={styles.verse}>
           {verse.ref && <Text style={styles.ref}>{verse.ref}</Text>}
@@ -61,10 +68,29 @@ export const VerseCard = memo(function VerseCard({ verse, index, script, meaning
               {transliterate(verse.te!, { hindi })}
             </Text>
           )}
-          {meaning && verse.en && (
+          {meaning && verse.bhavam && (
             <View style={styles.meaning}>
               <View style={[styles.meaningBar, { backgroundColor: accent }]} />
-              <Text style={[styles.en, { fontSize: 16.5 * scale, lineHeight: 24 * scale }]}>{verse.en}</Text>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.label, { color: accent }]}>భావం</Text>
+                <Text selectable style={[styles.bhavam, { fontSize: 16 * scale, lineHeight: 29 * scale }]}>{verse.bhavam}</Text>
+              </View>
+            </View>
+          )}
+          {meaning && verse.en && (
+            <View style={[styles.meaning, verse.bhavam && styles.meaningTight]}>
+              <View style={[styles.meaningBar, { backgroundColor: accent }]} />
+              <View style={{ flex: 1 }}>
+                {verse.bhavam && <Text style={[styles.label, { color: accent }]}>MEANING</Text>}
+                <Text selectable style={[styles.en, { fontSize: 16.5 * scale, lineHeight: 24 * scale }]}>{verse.en}</Text>
+              </View>
+            </View>
+          )}
+          {meaning && verse.note && (
+            <View style={[styles.note, { borderColor: accent }]}>
+              <Text style={[styles.noteHead, { color: accent }]}>✦ జీవితంలో · In your life</Text>
+              <Text style={[styles.noteTe, { fontSize: 15 * scale, lineHeight: 27 * scale }]}>{verse.note.te}</Text>
+              <Text style={[styles.noteEn, { fontSize: 15 * scale, lineHeight: 21 * scale }]}>{verse.note.en}</Text>
             </View>
           )}
           {verse.repeat && verse.repeat > 1 && (
@@ -128,6 +154,16 @@ const styles = StyleSheet.create({
   meaning: { flexDirection: 'row', gap: 12, marginTop: 16, paddingTop: 14, borderTopWidth: 1, borderTopColor: 'rgba(232,184,74,0.14)' },
   meaningBar: { width: 3, borderRadius: 2, opacity: 0.8 },
   en: { flex: 1, fontFamily: F.body, color: C.muted },
+  meaningTight: { marginTop: 10, paddingTop: 10 },
+  label: { fontFamily: F.teBold, fontSize: 11.5, letterSpacing: 1, lineHeight: 20, marginBottom: 2 },
+  bhavam: { fontFamily: F.teSerif, color: C.cream },
+  note: { marginTop: 16, padding: 14, borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', backgroundColor: 'rgba(232,184,74,0.06)' },
+  noteHead: { fontFamily: F.teBold, fontSize: 12.5, lineHeight: 22, marginBottom: 4 },
+  noteTe: { fontFamily: F.teSerif, color: C.cream },
+  noteEn: { fontFamily: F.bodyItalic, color: C.muted, marginTop: 6 },
+  speaker: { flexDirection: 'row', alignItems: 'baseline', gap: 8, marginBottom: 8, marginTop: 4, alignSelf: 'center' },
+  speakerTe: { fontFamily: F.teBold, fontSize: 15, lineHeight: 26 },
+  speakerEn: { fontFamily: F.title, color: C.faint, fontSize: 10, letterSpacing: 1.5 },
   japaBtn: {
     alignSelf: 'center',
     marginTop: 16,

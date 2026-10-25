@@ -10,7 +10,7 @@ import { transliterate } from '../lib/translit';
 // Pre-build a lowercase haystack per text: titles, deity names, Telugu verses and their transliteration
 const INDEX = TEXTS.map((t) => {
   const deityNames = t.deities.map((id) => DEITIES.find((d) => d.id === id)).filter(Boolean).map((d) => `${d!.name.te} ${d!.name.en}`);
-  const body = t.verses.map((v) => `${v.te ?? ''} ${v.en ?? ''}`).join(' ');
+  const body = t.verses.map((v) => `${v.te ?? ''} ${v.en ?? ''} ${v.bhavam ?? ''}`).join(' ');
   const tr = t.verses.map((v) => (v.te ? transliterate(v.te) : '')).join(' ');
   const hay = `${t.title.te} ${t.title.en} ${deityNames.join(' ')} ${body} ${tr}`.toLowerCase().replace(/a+/g, 'a');
   return { t, hay };

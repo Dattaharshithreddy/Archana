@@ -15,6 +15,12 @@ export type Verse = {
   ref?: string;
   /** Suggested repetitions */
   repeat?: number;
+  /** Simple Telugu explanation (భావం) */
+  bhavam?: string;
+  /** "What this means for you" note */
+  note?: Bi;
+  /** Who is speaking, shown as a small label (Gita) */
+  speaker?: Bi;
 };
 
 export type TextKind =
@@ -35,6 +41,10 @@ export type SacredText = {
   intro?: Bi;
   verses: Verse[];
   source?: string;
+  /** Key lessons shown after the introduction */
+  lessons?: Bi[];
+  /** Gita chapter number, for chapter navigation */
+  chapter?: number;
   /** Language of the verses — Hindi/Awadhi drops the final "a" when transliterating. Default Sanskrit. */
   lang?: 'sa' | 'hi' | 'te';
   /** Mark content that must be checked by a pandit before store release */

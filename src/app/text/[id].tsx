@@ -1,7 +1,7 @@
 import { useKeepAwake } from 'expo-keep-awake';
-import { Stack, useLocalSearchParams } from 'expo-router';
-import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { router, Stack, useLocalSearchParams } from 'expo-router';
+import React, { useEffect, useRef, useState } from 'react';
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeIn, interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, Extrapolation } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -12,7 +12,8 @@ import { BookmarkIcon, FlameIcon } from '../../components/Icons';
 import { Backdrop, DivineAura } from '../../components/Sacred';
 import { Header, IconButton, Press } from '../../components/UI';
 import { VerseCard } from '../../components/VerseCard';
-import { DEITIES, deityById, textById } from '../../data';
+import { DEITIES, GITA_CHAPTERS, deityById, textById } from '../../data';
+import { gitaColophon } from '../../data/gita/colophon';
 import type { Verse } from '../../data/types';
 import { useStore, type Script } from '../../lib/store';
 import { C, F } from '../../lib/theme';
@@ -37,6 +38,10 @@ export default function Reader() {
     return !!did && store.intros && !text!.id.startsWith('gita-') && shouldPlayIntro(did, text!.kind === 'vidhanam');
   });
   const scrollY = useSharedValue(0);
+  const listRef = useRef<any>(null);
+  const jumpTo = (index: number) => {
+    listRef.current?.scrollToIndex({ index, viewOffset: 70, animated: true });
+  };
 
   useEffect(() => {
     if (text) store.markRead(text.id);
@@ -81,6 +86,20 @@ export default function Reader() {
           <Text style={styles.introEn}>{text.intro.en}</Text>
         </Animated.View>
       )}
+      {text.lessons && (
+        <View style={[styles.lessons, { borderColor: accent }]}>
+          <Text style={[styles.lessonsHead, { color: accent }]}>✦ ముఖ్య పాఠాలు · Key lessons</Text>
+          {text.lessons.map((l, i) => (
+            <View key={i} style={styles.lessonRow}>
+              <Text style={[styles.lessonNum, { color: accent }]}>{i + 1}</Text>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.lessonTe}>{l.te}</Text>
+                <Text style={styles.lessonEn}>{l.en}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
+      )}
       <View style={styles.controls}>
         <View style={styles.seg}>
           {SCRIPTS.map((s) => (
@@ -101,8 +120,17 @@ export default function Reader() {
           </Press>
         </View>
       </View>
-      {text.verses.length === 0 && (
-        <Text style={styles.empty}>ఈ అధ్యాయంలోని శ్లోకాలు త్వరలో · Full verses for this chapter coming soon</Text>
+      {text.verses.length > 12 && (
+        <View style={{ marginBottom: 14 }}>
+          <Text style={styles.jumpLabel}>శ్లోకానికి వెళ్ళండి · Go to verse</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 16, gap: 6 }}>
+            {text.verses.map((v, i) => (
+              <Press key={i} onPress={() => jumpTo(i)} style={styles.jumpChip} haptic={false}>
+                <Text style={styles.jumpTxt}>{v.ref?.split('.').pop() ?? i + 1}</Text>
+              </Press>
+            ))}
+          </ScrollView>
+        </View>
       )}
     </View>
   );
@@ -137,7 +165,34 @@ export default function Reader() {
             accent={accent}
           />
         )}
-        ListFooterComponent={<Text style={styles.end}>॥ ఓం శాంతిః శాంతిః శాంతిః ॥</Text>}
+        ref={listRef}
+        onScrollToIndexFailed={(info: { index: number; averageItemLength: number }) => {
+          listRef.current?.scrollToOffset({ offset: info.averageItemLength * info.index, animated: false });
+          setTimeout(() => listRef.current?.scrollToIndex({ index: info.index, viewOffset: 70, animated: true }), 250);
+        }}
+        ListFooterComponent={
+          text.chapter ? (
+            <View>
+              <Text style={styles.colophon}>{gitaColophon(text.chapter)}</Text>
+              <View style={styles.chapNav}>
+                {text.chapter > 1 && (
+                  <Press flex onPress={() => router.replace(`/text/gita-${text.chapter! - 1}`)} style={styles.chapBtn}>
+                    <Text style={styles.chapBtnSmall}>← మునుపటి · Previous</Text>
+                    <Text style={styles.chapBtnTe} numberOfLines={1}>{GITA_CHAPTERS[text.chapter - 2].name.te}</Text>
+                  </Press>
+                )}
+                {text.chapter < 18 && (
+                  <Press flex onPress={() => router.replace(`/text/gita-${text.chapter! + 1}`)} style={[styles.chapBtn, { backgroundColor: accent, borderColor: accent }]}>
+                    <Text style={[styles.chapBtnSmall, { color: C.bg0 }]}>తరువాతి · Next →</Text>
+                    <Text style={[styles.chapBtnTe, { color: C.bg0 }]} numberOfLines={1}>{GITA_CHAPTERS[text.chapter].name.te}</Text>
+                  </Press>
+                )}
+              </View>
+            </View>
+          ) : (
+            <Text style={styles.end}>॥ ఓం శాంతిః శాంతిః శాంతిః ॥</Text>
+          )
+        }
         initialNumToRender={6}
         windowSize={7}
       />
@@ -156,6 +211,20 @@ export default function Reader() {
 }
 
 const styles = StyleSheet.create({
+  lessons: { marginHorizontal: 16, marginTop: 18, padding: 16, borderRadius: 20, borderWidth: 1, backgroundColor: 'rgba(255,214,150,0.05)', gap: 12 },
+  lessonsHead: { fontFamily: F.teBold, fontSize: 14, lineHeight: 24 },
+  lessonRow: { flexDirection: 'row', gap: 12 },
+  lessonNum: { fontFamily: F.titleBold, fontSize: 16, marginTop: 3 },
+  lessonTe: { fontFamily: F.teSerif, color: C.cream, fontSize: 15, lineHeight: 26 },
+  lessonEn: { fontFamily: F.bodyItalic, color: C.muted, fontSize: 15, lineHeight: 20, marginTop: 2 },
+  jumpLabel: { fontFamily: F.teSerif, color: C.faint, fontSize: 12, lineHeight: 20, marginHorizontal: 18, marginBottom: 6 },
+  jumpChip: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: C.line, backgroundColor: 'rgba(0,0,0,0.25)' },
+  jumpTxt: { fontFamily: F.title, color: C.goldSoft, fontSize: 13 },
+  colophon: { fontFamily: F.te, color: C.gold, fontSize: 16, lineHeight: 30, textAlign: 'center', marginHorizontal: 24, marginTop: 16, opacity: 0.9 },
+  chapNav: { flexDirection: 'row', gap: 10, marginHorizontal: 16, marginTop: 20 },
+  chapBtn: { padding: 14, borderRadius: 18, borderWidth: 1, borderColor: C.line, backgroundColor: C.card },
+  chapBtnSmall: { fontFamily: F.teSerif, color: C.muted, fontSize: 11.5, lineHeight: 20 },
+  chapBtnTe: { fontFamily: F.teBold, color: C.cream, fontSize: 15, lineHeight: 26 },
   titleTe: { fontFamily: F.teBold, color: C.goldSoft, fontSize: 26, lineHeight: 44, textAlign: 'center', paddingHorizontal: 20, marginTop: 4 },
   titleEn: { fontFamily: F.title, color: C.muted, fontSize: 12.5, letterSpacing: 1.5, textAlign: 'center', paddingHorizontal: 20 },
   source: { fontFamily: F.bodyItalic, color: C.faint, fontSize: 14, marginTop: 4 },
