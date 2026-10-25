@@ -1,0 +1,107 @@
+import type { SacredText } from '../types';
+
+const CH: [string, string][] = [
+  ['జయ హనుమాన జ్ఞాన గున సాగర ।\nజయ కపీస తిహుఁ లోక ఉజాగర ॥', 'Victory to Hanuman, ocean of wisdom and virtue. Victory to the lord of the monkeys, who lights up the three worlds.'],
+  ['రామదూత అతులిత బల ధామా ।\nఅంజని పుత్ర పవనసుత నామా ॥', 'Messenger of Rama, abode of matchless strength, known as Anjani’s son and the son of the Wind.'],
+  ['మహాబీర బిక్రమ బజరంగీ ।\nకుమతి నివార సుమతి కే సంగీ ॥', 'Great hero, mighty, with a body strong as a thunderbolt — you dispel bad thoughts and stand by good ones.'],
+  ['కంచన బరన బిరాజ సుబేసా ।\nకానన కుండల కుంచిత కేసా ॥', 'Golden in colour, beautifully dressed, with earrings and curly hair.'],
+  ['హాథ బజ్ర ఔ ధ్వజా బిరాజై ।\nకాఁధే మూఁజ జనేఊ సాజై ॥', 'In your hands shine the thunderbolt and the flag; a sacred thread of munja grass adorns your shoulder.'],
+  ['సంకర సువన కేసరీనందన ।\nతేజ ప్రతాప మహా జగ బందన ॥', 'Embodiment of Shiva, son of Kesari — your brilliance and glory are revered by the whole world.'],
+  ['బిద్యావాన గునీ అతి చాతుర ।\nరామ కాజ కరిబే కో ఆతుర ॥', 'Learned, virtuous and very wise, always eager to do Rama’s work.'],
+  ['ప్రభు చరిత్ర సునిబే కో రసియా ।\nరామ లఖన సీతా మన బసియా ॥', 'You delight in hearing the Lord’s story; Rama, Lakshmana and Sita dwell in your heart.'],
+  ['సూక్ష్మ రూప ధరి సియహిఁ దిఖావా ।\nబికట రూప ధరి లంక జరావా ॥', 'Taking a tiny form you appeared before Sita; taking a fearsome form you burned Lanka.'],
+  ['భీమ రూప ధరి అసుర సఁహారే ।\nరామచంద్ర కే కాజ సఁవారే ॥', 'Taking a mighty form you destroyed the demons and accomplished Ramachandra’s tasks.'],
+  ['లాయ సజీవన లఖన జియాయే ।\nశ్రీరఘుబీర హరషి ఉర లాయే ॥', 'You brought the Sanjeevani herb and revived Lakshmana; Rama embraced you in joy.'],
+  ['రఘుపతి కీన్హీ బహుత బడాఈ ।\nతుమ మమ ప్రియ భరతహి సమ భాఈ ॥', 'Rama praised you greatly: “You are as dear to me as my brother Bharata.”'],
+  ['సహస బదన తుమ్హరో జస గావైఁ ।\nఅస కహి శ్రీపతి కంఠ లగావైఁ ॥', '“May the thousand-mouthed Shesha sing your glory,” said the Lord, and embraced you.'],
+  ['సనకాదిక బ్రహ్మాది మునీసా ।\nనారద సారద సహిత అహీసా ॥', 'Sanaka and the sages, Brahma and the gods, Narada, Saraswati and the king of serpents —'],
+  ['జమ కుబేర దిగపాల జహాఁ తే ।\nకబి కోబిద కహి సకే కహాఁ తే ॥', 'Yama, Kubera and the guardians of the directions — how can poets and scholars fully describe your glory?'],
+  ['తుమ ఉపకార సుగ్రీవహిఁ కీన్హా ।\nరామ మిలాయ రాజ పద దీన్హా ॥', 'You did Sugriva a great service: you brought him to Rama and restored his kingdom.'],
+  ['తుమ్హరో మంత్ర బిభీషన మానా ।\nలంకేస్వర భఏ సబ జగ జానా ॥', 'Vibhishana heeded your counsel and became king of Lanka — the whole world knows this.'],
+  ['జుగ సహస్ర జోజన పర భానూ ।\nలీల్యో తాహి మధుర ఫల జానూ ॥', 'The sun, thousands of yojanas away, you swallowed, thinking it a sweet fruit.'],
+  ['ప్రభు ముద్రికా మేలి ముఖ మాహీఁ ।\nజలధి లాఁఘి గయే అచరజ నాహీఁ ॥', 'Holding the Lord’s ring in your mouth you leapt across the ocean — no wonder at all.'],
+  ['దుర్గమ కాజ జగత కే జేతే ।\nసుగమ అనుగ్రహ తుమ్హరే తేతే ॥', 'All the difficult tasks of the world become easy by your grace.'],
+  ['రామ దుఆరే తుమ రఖవారే ।\nహోత న ఆజ్ఞా బిను పైసారే ॥', 'You guard Rama’s door; none may enter without your permission.'],
+  ['సబ సుఖ లహై తుమ్హారీ సరనా ।\nతుమ రచ్ఛక కాహూ కో డర నా ॥', 'Those who take refuge in you find every happiness; with you as protector, there is nothing to fear.'],
+  ['ఆపన తేజ సమ్హారో ఆపై ।\nతీనోఁ లోక హాఁక తేఁ కాఁపై ॥', 'Only you can contain your own might; the three worlds tremble at your roar.'],
+  ['భూత పిసాచ నికట నహిఁ ఆవై ।\nమహాబీర జబ నామ సునావై ॥', 'Ghosts and evil spirits do not come near when the name of the great hero is spoken.'],
+  ['నాసై రోగ హరై సబ పీరా ।\nజపత నిరంతర హనుమత బీరా ॥', 'Disease is destroyed and all pain removed by constantly chanting the name of the brave Hanuman.'],
+  ['సంకట తేఁ హనుమాన ఛుడావై ।\nమన క్రమ బచన ధ్యాన జో లావై ॥', 'Hanuman frees from trouble those who remember him in thought, deed and word.'],
+  ['సబ పర రామ తపస్వీ రాజా ।\nతిన కే కాజ సకల తుమ సాజా ॥', 'Rama, the ascetic king, is supreme over all — and you carried out all his tasks.'],
+  ['ఔర మనోరథ జో కోఈ లావై ।\nసోఇ అమిత జీవన ఫల పావై ॥', 'Whoever comes to you with any wish receives its boundless fruit in life.'],
+  ['చారోఁ జుగ పరతాప తుమ్హారా ।\nహై పరసిద్ధ జగత ఉజియారా ॥', 'Your glory spans all four ages; your fame lights up the world.'],
+  ['సాధు సంత కే తుమ రఖవారే ।\nఅసుర నికందన రామ దులారే ॥', 'You protect the good and the saints, destroy the demons, and are dear to Rama.'],
+  ['అష్ట సిద్ధి నౌ నిధి కే దాతా ।\nఅస బర దీన జానకీ మాతా ॥', 'Mother Sita blessed you to be the giver of the eight siddhis and nine treasures.'],
+  ['రామ రసాయన తుమ్హరే పాసా ।\nసదా రహో రఘుపతి కే దాసా ॥', 'You hold the elixir of Rama’s name; may you always remain the servant of Raghupati.'],
+  ['తుమ్హరే భజన రామ కో పావై ।\nజనమ జనమ కే దుఖ బిసరావై ॥', 'Through devotion to you one reaches Rama and forgets the sorrows of many lifetimes.'],
+  ['అంత కాల రఘుబర పుర జాఈ ।\nజహాఁ జన్మ హరిభక్త కహాఈ ॥', 'At life’s end such a devotee goes to Rama’s abode, and wherever born, is known as a devotee of Hari.'],
+  ['ఔర దేవతా చిత్త న ధరఈ ।\nహనుమత సేఇ సర్బ సుఖ కరఈ ॥', 'Even without keeping other gods in mind, serving Hanuman alone brings every happiness.'],
+  ['సంకట కటై మిటై సబ పీరా ।\nజో సుమిరై హనుమత బలబీరా ॥', 'Troubles are cut away and all pain vanishes for one who remembers the mighty Hanuman.'],
+  ['జై జై జై హనుమాన గోసాఈఁ ।\nకృపా కరహు గురుదేవ కీ నాఈఁ ॥', 'Victory, victory, victory to Lord Hanuman! Bless me as my Guru would.'],
+  ['జో సత బార పాఠ కర కోఈ ।\nఛూటహి బంది మహా సుఖ హోఈ ॥', 'Whoever recites this a hundred times is freed from bondage and attains great joy.'],
+  ['జో యహ పఢై హనుమాన చాలీసా ।\nహోయ సిద్ధి సాఖీ గౌరీసా ॥', 'Whoever reads this Hanuman Chalisa attains success — Shiva himself is witness.'],
+  ['తులసీదాస సదా హరి చేరా ।\nకీజై నాథ హృదయ మహఁ డేరా ॥', 'Tulsidas, forever Hari’s servant, prays: O Lord, make your home in my heart.'],
+];
+
+export const HANUMAN: SacredText[] = [
+  {
+    id: 'hanuman-chalisa',
+    title: { te: 'శ్రీ హనుమాన్ చాలీసా', en: 'Sri Hanuman Chalisa' },
+    kind: 'stotram',
+    deities: ['hanuman', 'rama'],
+    lang: 'hi',
+    source: 'Goswami Tulsidas (Awadhi), in Telugu script',
+    review: true,
+    intro: {
+      te: 'మంగళవారం, శనివారం, హనుమాన్ దీక్షలో ప్రతిరోజూ పఠించే నలభై చౌపాయిలు.',
+      en: 'Forty verses recited on Tuesdays, Saturdays and daily during Hanuman Deeksha.',
+    },
+    verses: [
+      {
+        heading: { te: 'దోహా', en: 'Opening Doha' },
+        te: 'శ్రీగురు చరన సరోజ రజ నిజ మను ముకురు సుధారి ।\nబరనఉఁ రఘుబర బిమల జసు జో దాయకు ఫల చారి ॥',
+        en: 'Cleaning the mirror of my mind with the dust of my Guru’s lotus feet, I sing the pure glory of Rama, which grants the four fruits of life.',
+      },
+      {
+        te: 'బుద్ధిహీన తను జానికే సుమిరౌఁ పవనకుమార ।\nబల బుధి బిద్యా దేహు మోహిఁ హరహు కలేస బికార ॥',
+        en: 'Knowing myself to be lacking in wisdom, I remember you, son of the Wind. Grant me strength, intelligence and knowledge; remove my sorrows and faults.',
+      },
+      ...CH.map(([te, en], i) => ({
+        heading: i === 0 ? { te: 'చౌపాయి', en: 'Chaupai' } : undefined,
+        te,
+        en,
+        ref: String(i + 1),
+      })),
+      {
+        heading: { te: 'దోహా', en: 'Closing Doha' },
+        te: 'పవనతనయ సంకట హరన మంగల మూరతి రూప ।\nరామ లఖన సీతా సహిత హృదయ బసహు సుర భూప ॥',
+        en: 'Son of the Wind, remover of troubles, embodiment of auspiciousness — king of the gods, dwell in my heart with Rama, Lakshmana and Sita.',
+      },
+    ],
+  },
+  {
+    id: 'hanuman-shlokas',
+    title: { te: 'ఆంజనేయ శ్లోకాలు', en: 'Hanuman Shlokas' },
+    kind: 'shloka',
+    deities: ['hanuman'],
+    verses: [
+      {
+        te: 'మనోజవం మారుతతుల్యవేగం\nజితేంద్రియం బుద్ధిమతాం వరిష్ఠమ్ ।\nవాతాత్మజం వానరయూథముఖ్యం\nశ్రీరామదూతం శరణం ప్రపద్యే ॥',
+        en: 'Swift as the mind, fast as the wind, master of the senses, foremost among the wise, son of the Wind, chief of the vanara army, messenger of Sri Rama — I take refuge in him.',
+      },
+      {
+        te: 'బుద్ధిర్బలం యశో ధైర్యం నిర్భయత్వమరోగతా ।\nఅజాడ్యం వాక్పటుత్వం చ హనుమత్స్మరణాద్భవేత్ ॥',
+        en: 'Intelligence, strength, fame, courage, fearlessness, good health, alertness and eloquence come by remembering Hanuman.',
+      },
+      {
+        te: 'యత్ర యత్ర రఘునాథకీర్తనం\nతత్ర తత్ర కృతమస్తకాంజలిమ్ ।\nబాష్పవారిపరిపూర్ణలోచనం\nమారుతిం నమత రాక్షసాంతకమ్ ॥',
+        en: 'Wherever Rama’s glory is sung, there Hanuman stands with folded hands above his head and eyes full of tears. Bow to Maruti, destroyer of demons.',
+      },
+      {
+        te: 'ఓం శ్రీ హనుమతే నమః',
+        en: 'Salutations to Sri Hanuman.',
+        repeat: 108,
+      },
+    ],
+  },
+];
