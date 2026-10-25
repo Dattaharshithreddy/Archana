@@ -16,6 +16,26 @@ export const VALMIKI_SARGAS = VALMIKI_INDEX.flat().length;
 const cache = new Map<string, Sarga[]>();
 const sumCache = new Map<string, Record<string, [string, string]>>();
 
+const bhCache = new Map<string, Record<string, string[]>>();
+/** Telugu bhavam per shloka, written kanda by kanda. */
+function sargaBhavam(k: string): Record<string, string[]> {
+  let d = bhCache.get(k);
+  if (!d) {
+    switch (k) {
+      case 'bala': d = require('./bhavam/bala.json'); break;
+      case 'ayodhya': d = require('./bhavam/ayodhya.json'); break;
+      case 'aranya': d = require('./bhavam/aranya.json'); break;
+      case 'kishkindha': d = require('./bhavam/kishkindha.json'); break;
+      case 'sundara': d = require('./bhavam/sundara.json'); break;
+      case 'yuddha': d = require('./bhavam/yuddha.json'); break;
+      case 'uttara': d = require('./bhavam/uttara.json'); break;
+      default: d = {};
+    }
+    bhCache.set(k, d!);
+  }
+  return d!;
+}
+
 /** Telugu + English summary of every sarga (small, loaded per kanda). */
 export function sargaSummaries(k: string): Record<string, [string, string]> {
   let d = sumCache.get(k);
@@ -97,7 +117,7 @@ export function valmikiSarga(id: string): SacredText | undefined {
       const noEnEn = en.length ? '' : '\n\n(Verse-by-verse English is not available for this sarga.)';
       return sm ? { te: `సర్గ సారాంశం: ${sm[0]}${noEn}`, en: `In this sarga: ${sm[1]}${noEnEn}` } : meta.summary;
     })(),
-    verses: te.map((t, i) => ({ te: t, en: en[i] || undefined, ref: `${ki + 1}.${n}.${i + 1}` })),
+    verses: te.map((t, i) => ({ te: t, en: en[i] || undefined, bhavam: sargaBhavam(k)[String(n)]?.[i] || undefined, ref: `${ki + 1}.${n}.${i + 1}` })),
     nav: {
       prev: prev ? { id: valmikiId(prev[0], prev[1]), label: sargaLabel(prev[0], prev[1]) } : undefined,
       next: next ? { id: valmikiId(next[0], next[1]), label: sargaLabel(next[0], next[1]) } : undefined,
