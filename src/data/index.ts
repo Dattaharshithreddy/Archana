@@ -14,6 +14,9 @@ import { ASHTOTTARAMS } from './texts/ashtottaram';
 import { VRATA_KATHAS } from './texts/vrata-kathas';
 import { VISHNU_SAHASRANAMAM } from './texts/vishnu-sahasranamam';
 import { valmikiSarga } from './ramayana/load';
+import { MORE_STOTRAS } from './texts/stotras-more';
+import { LALITA_SAHASRANAMAM } from './texts/lalita-sahasranamam';
+import { SRI_RUDRAM } from './texts/rudram';
 
 export * from './types';
 export * from './deities';
@@ -22,7 +25,7 @@ export { GITA_CHAPTERS } from './texts/gita';
 export { KANDAS } from './texts/ramayana';
 
 /** Complete versions replace any earlier partial text with the same id. */
-const COMPLETE: SacredText[] = [...VENKATESA_COMPLETE, ...DEVI_COMPLETE, ...AYYAPPA_COMPLETE, ...ASHTOTTARAMS, ...VRATA_KATHAS, VISHNU_SAHASRANAMAM];
+const COMPLETE: SacredText[] = [...VENKATESA_COMPLETE, ...DEVI_COMPLETE, ...AYYAPPA_COMPLETE, ...ASHTOTTARAMS, ...VRATA_KATHAS, VISHNU_SAHASRANAMAM, ...MORE_STOTRAS, LALITA_SAHASRANAMAM, SRI_RUDRAM];
 const COMPLETE_IDS = new Set(COMPLETE.map((t) => t.id));
 
 const BASE: SacredText[] = [

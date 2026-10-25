@@ -28,7 +28,7 @@ export const FESTIVALS: Collection[] = [
     about: b('సౌభాగ్యం, సంపద, కుటుంబ క్షేమం కోసం స్త్రీలు చేసే వ్రతం. కలశంలో అమ్మవారిని ఆవాహన చేసి పూజిస్తారు.', 'A vratam for prosperity and family well-being. The Goddess is invoked in a decorated kalasham.'),
     samagri: [b('కలశం, కొబ్బరికాయ, జాకెట్టు ముక్క', 'Kalasham, coconut, blouse piece'), b('తోరాలు (తొమ్మిది ముడుల పసుపు దారం)', 'Thoram — yellow thread with nine knots'), b('పసుపు, కుంకుమ, గాజులు', 'Turmeric, kumkum, bangles'), b('తొమ్మిది రకాల పిండివంటలు', 'Nine kinds of sweets/savouries'), b('తమలపాకులు, వక్కలు, పండ్లు', 'Betel leaves, nuts, fruits')],
     steps: [b('ముందుగా గణపతి పూజ చేయండి.', 'Begin with Ganapati puja.'), b('కలశంపై కొబ్బరికాయ పెట్టి అమ్మవారి ముఖం అలంకరించండి.', 'Place the coconut on the kalasham and adorn it as the Goddess.'), b('వరలక్ష్మీ షోడశోపచార పూజ చేయండి.', 'Perform the sixteen-step Lakshmi puja.'), b('తోరం పూజించి కుడిచేతికి కట్టుకోండి.', 'Worship the thoram and tie it on the right wrist.'), b('వ్రత కథ విని, ముత్తైదువులకు వాయనం ఇవ్వండి.', 'Listen to the vrata katha and give vayanam to married women.')],
-    textIds: ['ganesha-prarthana', 'puja-lakshmi', 'ashtottaram-lakshmi', 'varalakshmi-vrata-katha', 'mahalakshmi-ashtakam', 'lakshmi-mantras'],
+    textIds: ['ganesha-prarthana', 'puja-lakshmi', 'ashtottaram-lakshmi', 'varalakshmi-vrata-katha', 'mahalakshmi-ashtakam', 'lakshmi-mantras', 'kanakadhara-stotram'],
   },
   {
     id: 'krishnashtami', type: 'festival', deity: 'krishna',
@@ -55,7 +55,7 @@ export const FESTIVALS: Collection[] = [
     about: b('తొమ్మిది రాత్రులు అమ్మవారిని తొమ్మిది అలంకారాలలో పూజించి, విజయదశమి నాడు విజయోత్సవం జరుపుకుంటారు. విజయవాడ కనకదుర్గమ్మ అలంకారాలు, తెలంగాణలో బతుకమ్మ ప్రసిద్ధం.', 'Nine nights of worship of the Mother in nine forms, ending in Vijayadashami. Kanaka Durga’s alankarams at Vijayawada and Bathukamma in Telangana are famous.'),
     samagri: [b('కలశం', 'Kalasham'), b('ఎర్రటి పుష్పాలు, కుంకుమ', 'Red flowers and kumkum'), b('రోజుకొక నైవేద్యం', 'A different naivedyam each day'), b('పుస్తకాలు, పనిముట్లు (ఆయుధ పూజ)', 'Books and tools for Ayudha puja')],
     steps: [b('మొదటి రోజు కలశ స్థాపన చేయండి.', 'Install the kalasham on the first day.'), b('ప్రతిరోజూ దుర్గా పూజ, దుర్గా శ్లోకాలు పఠించండి.', 'Daily Durga puja and Durga shlokas.'), b('మూల నక్షత్రం నాడు సరస్వతీ పూజ చేయండి.', 'Perform Saraswati puja on Moola nakshatram.'), b('మహర్నవమి నాడు ఆయుధ పూజ చేయండి.', 'Ayudha puja on Mahanavami.'), b('విజయదశమి నాడు శమీ పూజ చేసి, జమ్మి ఆకులు పంచుకోండి.', 'On Vijayadashami, worship the Shami tree and exchange its leaves.')],
-    textIds: ['puja-durga', 'ashtottaram-durga', 'durga-shlokas', 'ya-devi-sarvabhuteshu', 'mahishasura-mardini', 'saraswati-prarthana'],
+    textIds: ['puja-durga', 'ashtottaram-durga', 'durga-shlokas', 'ya-devi-sarvabhuteshu', 'mahishasura-mardini', 'saraswati-prarthana', 'lalita-sahasranamam'],
   },
   {
     id: 'deepavali', type: 'festival', deity: 'lakshmi',
@@ -64,7 +64,7 @@ export const FESTIVALS: Collection[] = [
     about: b('నరకాసుర వధ తర్వాత వెలుగుల పండుగ. సాయంత్రం లక్ష్మీపూజ చేసి ఇంటినిండా దీపాలు వెలిగిస్తారు.', 'The festival of lights after the defeat of Narakasura. Lakshmi puja at dusk, with lamps filling every corner.'),
     samagri: [b('ప్రమిదలు, నూనె, వత్తులు', 'Clay lamps, oil, wicks'), b('లక్ష్మీదేవి పటం/విగ్రహం', 'Lakshmi image or idol'), b('కొత్త నాణేలు, పుష్పాలు', 'New coins and flowers'), b('మిఠాయిలు', 'Sweets')],
     steps: [b('నరక చతుర్దశి నాడు తెల్లవారుజామున అభ్యంగన స్నానం.', 'Oil bath before dawn on Naraka Chaturdashi.'), b('సాయంత్రం గణపతి, మహాలక్ష్మి పూజ.', 'Ganapati and Mahalakshmi puja at dusk.'), b('మహాలక్ష్మ్యష్టకం పఠించండి.', 'Recite the Mahalakshmi Ashtakam.'), b('దీపారాధన శ్లోకంతో దీపాలు వెలిగించండి.', 'Light the lamps with the deepa mantra.')],
-    textIds: ['puja-lakshmi', 'ashtottaram-lakshmi', 'deepa-mantra', 'mahalakshmi-ashtakam', 'lakshmi-mantras'],
+    textIds: ['puja-lakshmi', 'ashtottaram-lakshmi', 'deepa-mantra', 'mahalakshmi-ashtakam', 'lakshmi-mantras', 'kanakadhara-stotram'],
   },
   {
     id: 'karthika', type: 'festival', deity: 'shiva',
@@ -72,7 +72,7 @@ export const FESTIVALS: Collection[] = [
     when: b('దీపావళి తర్వాత వచ్చే నెల రోజులు', 'The month after Deepavali'),
     about: b('శివకేశవులకు ప్రీతికరమైన మాసం. తెల్లవారుజామున నదీస్నానం, కార్తీక దీపాలు, సోమవార వ్రతాలు, కార్తీక పౌర్ణమి విశేషం.', 'A month sacred to both Shiva and Vishnu — dawn river baths, Karthika deepams, Monday fasts and the Karthika Purnima.'),
     steps: [b('సూర్యోదయానికి ముందు స్నానం చేయండి.', 'Bathe before sunrise.'), b('ఇంటి గుమ్మంలో, తులసి కోట వద్ద సాయంత్రం దీపం పెట్టండి.', 'Light lamps at the threshold and near the tulasi each evening.'), b('సోమవారాల్లో శివునికి అభిషేకం చేసి ఉపవాసం ఉండండి.', 'Abhishekam and fast on Mondays.'), b('కార్తీక పౌర్ణమి నాడు 365 వత్తుల దీపం వెలిగించండి.', 'On Karthika Purnima, light a lamp of 365 wicks.')],
-    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'lingashtakam', 'shiva-panchakshara-stotram', 'deepa-mantra'],
+    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'lingashtakam', 'shiva-panchakshara-stotram', 'deepa-mantra', 'bilvashtakam', 'sri-rudram'],
   },
   {
     id: 'sankranti', type: 'festival', deity: 'surya',
@@ -81,7 +81,7 @@ export const FESTIVALS: Collection[] = [
     about: b('సూర్యుడు మకర రాశిలోకి ప్రవేశించే పెద్ద పండుగ. భోగి మంటలు, రంగవల్లులు, గొబ్బెమ్మలు, హరిదాసులు, గంగిరెద్దులు.', 'The great harvest festival as the Sun enters Makara — Bhogi bonfires, rangoli, gobbemmalu, Haridasus and decorated bulls.'),
     samagri: [b('ముగ్గులు, గొబ్బెమ్మలు', 'Rangoli and gobbemmalu'), b('కొత్త బియ్యంతో పొంగలి', 'Pongali with new rice'), b('చెరకు, రేగుపళ్ళు', 'Sugarcane and regi pallu')],
     steps: [b('భోగి నాడు భోగి మంట, పిల్లలకు భోగి పళ్ళు.', 'Bhogi bonfire, and bhogi pallu for children.'), b('సంక్రాంతి నాడు సూర్యునికి అర్ఘ్యం ఇచ్చి సూర్య మంత్రాలు చదవండి.', 'On Sankranti, offer arghya to the Sun and recite Surya mantras.'), b('పొంగలి నివేదించండి, పితృదేవతలను స్మరించండి.', 'Offer pongali and remember the ancestors.'), b('కనుమ నాడు పశువులను పూజించండి.', 'On Kanuma, honour the cattle.')],
-    textIds: ['puja-surya', 'ashtottaram-surya', 'surya-mantras', 'gayatri'],
+    textIds: ['puja-surya', 'ashtottaram-surya', 'surya-mantras', 'gayatri', 'aditya-hrudayam'],
   },
   {
     id: 'shivaratri', type: 'festival', deity: 'shiva',
@@ -90,7 +90,7 @@ export const FESTIVALS: Collection[] = [
     about: b('శివుని మహా రాత్రి. రోజంతా ఉపవాసం, రాత్రంతా జాగరణ, నాలుగు జాముల అభిషేకం, బిల్వార్చన.', 'The great night of Shiva — a day-long fast, an all-night vigil, abhishekam in four watches and worship with bilva leaves.'),
     samagri: [b('బిల్వ పత్రాలు', 'Bilva leaves'), b('పాలు, పెరుగు, తేనె, నెయ్యి, పంచదార (పంచామృతం)', 'Milk, curd, honey, ghee, sugar (panchamrutam)'), b('విభూతి, రుద్రాక్ష', 'Vibhuti and rudraksha')],
     steps: [b('ఉపవాసం ఉండండి.', 'Observe the fast.'), b('శివునికి పంచామృత అభిషేకం చేయండి.', 'Perform panchamrutha abhishekam.'), b('బిల్వ పత్రాలతో అర్చించండి.', 'Worship with bilva leaves.'), b('ఓం నమః శివాయ జపిస్తూ జాగరణ చేయండి.', 'Keep vigil chanting Om Namah Shivaya.'), b('మరుసటి రోజు ఉపవాస విరమణ చేయండి.', 'Break the fast the next morning.')],
-    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'mahamrityunjaya', 'lingashtakam', 'shiva-panchakshara-stotram', 'karpura-gauram'],
+    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'mahamrityunjaya', 'lingashtakam', 'shiva-panchakshara-stotram', 'karpura-gauram', 'sri-rudram', 'bilvashtakam', 'dakshinamurthy-stotram'],
   },
   {
     id: 'vaikuntha-ekadashi', type: 'festival', deity: 'venkateswara',
@@ -106,7 +106,7 @@ export const FESTIVALS: Collection[] = [
     when: b('మాఘ శుద్ధ సప్తమి', 'Magha Shukla Saptami'),
     about: b('సూర్య జయంతి. తలపై, భుజాలపై జిల్లేడు ఆకులు పెట్టుకుని స్నానం చేసి, చిక్కుడు ఆకులపై పరమాన్నం నివేదిస్తారు.', 'Surya Jayanti. Bathe with arka (jilledu) leaves on head and shoulders, and offer paramannam on chikkudu leaves.'),
     steps: [b('సూర్యోదయ సమయంలో జిల్లేడు ఆకులతో స్నానం.', 'Bathe at sunrise with arka leaves.'), b('సూర్యునికి అర్ఘ్యం ఇవ్వండి.', 'Offer arghya to the Sun.'), b('చిక్కుడు ఆకులపై పరమాన్నం నివేదించండి.', 'Offer paramannam on broad-bean leaves.'), b('సూర్య మంత్రాలు, గాయత్రి జపించండి.', 'Chant Surya mantras and Gayatri.')],
-    textIds: ['puja-surya', 'ashtottaram-surya', 'surya-mantras', 'gayatri'],
+    textIds: ['puja-surya', 'ashtottaram-surya', 'surya-mantras', 'gayatri', 'aditya-hrudayam'],
   },
 ];
 
@@ -146,7 +146,7 @@ export const DEEKSHAS: Collection[] = [
     about: b('ఎర్రటి వస్త్రాలు ధరించి కనకదుర్గమ్మను ఆరాధించే దీక్ష. ఇరుముడితో ఇంద్రకీలాద్రి చేరి దీక్ష విరమిస్తారు.', 'A deeksha of devotion to Kanaka Durga, worn in red. Devotees carry an irumudi to Indrakeeladri to conclude it.'),
     rules: [b('ఎరుపు వస్త్రాలు.', 'Red clothes.'), b('రెండు పూటలా స్నానం, అమ్మవారి పూజ.', 'Bath and puja to the Mother twice daily.'), b('బ్రహ్మచర్యం, సాత్వికాహారం, నేలపై నిద్ర.', 'Celibacy, sattvic food, sleeping on the floor.')],
     steps: [b('గురుభవానీ ద్వారా మాలధారణ.', 'Wear the mala through a Guru Bhavani.'), b('ప్రతిరోజూ దుర్గా శ్లోకాలు, యా దేవీ స్తుతి పఠించండి.', 'Recite Durga shlokas and Ya Devi daily.'), b('ఇంద్రకీలాద్రిపై ఇరుముడి సమర్పించి దీక్ష విరమించండి.', 'Offer the irumudi at Indrakeeladri and conclude.')],
-    textIds: ['puja-durga', 'ashtottaram-durga', 'durga-shlokas', 'ya-devi-sarvabhuteshu', 'mahishasura-mardini'],
+    textIds: ['puja-durga', 'ashtottaram-durga', 'durga-shlokas', 'ya-devi-sarvabhuteshu', 'mahishasura-mardini', 'lalita-sahasranamam'],
   },
   {
     id: 'shiva-deeksha', type: 'deeksha', deity: 'shiva',
@@ -155,7 +155,7 @@ export const DEEKSHAS: Collection[] = [
     about: b('రుద్రాక్ష మాల ధరించి, విభూతి పెట్టుకుని, పంచాక్షరి జపిస్తూ చేసే దీక్ష. శ్రీశైలం వంటి జ్యోతిర్లింగ క్షేత్రాల్లో విరమణ.', 'Worn with a rudraksha mala and vibhuti, chanting the Panchakshari. Often concluded at jyotirlinga kshetras like Srisailam.'),
     rules: [b('నలుపు/తెలుపు వస్త్రాలు, విభూతి ధారణ.', 'Black or white clothes, with vibhuti.'), b('రెండు పూటలా స్నానం, శివపూజ.', 'Bath and Shiva puja twice daily.'), b('బ్రహ్మచర్యం, సాత్వికాహారం.', 'Celibacy and sattvic food.')],
     steps: [b('రుద్రాక్ష మాల ధరించండి.', 'Wear the rudraksha mala.'), b('ప్రతిరోజూ 108 సార్లు ఓం నమః శివాయ జపించండి.', 'Chant Om Namah Shivaya 108 times daily.'), b('సోమవారాల్లో అభిషేకం.', 'Abhishekam on Mondays.'), b('శివరాత్రి నాడు జాగరణ చేసి క్షేత్రంలో విరమణ.', 'Keep vigil on Shivaratri and conclude at a kshetra.')],
-    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'mahamrityunjaya', 'lingashtakam', 'karpura-gauram'],
+    textIds: ['puja-shiva', 'ashtottaram-shiva', 'panchakshari', 'mahamrityunjaya', 'lingashtakam', 'karpura-gauram', 'sri-rudram', 'bilvashtakam'],
   },
 ];
 
