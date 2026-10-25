@@ -14,6 +14,26 @@ export const VALMIKI_TOTAL = VALMIKI_INDEX.flat().reduce((a, s) => a + s[1], 0);
 export const VALMIKI_SARGAS = VALMIKI_INDEX.flat().length;
 
 const cache = new Map<string, Sarga[]>();
+const sumCache = new Map<string, Record<string, [string, string]>>();
+
+/** Telugu + English summary of every sarga (small, loaded per kanda). */
+export function sargaSummaries(k: string): Record<string, [string, string]> {
+  let d = sumCache.get(k);
+  if (!d) {
+    switch (k) {
+      case 'bala': d = require('./summaries/bala.json'); break;
+      case 'ayodhya': d = require('./summaries/ayodhya.json'); break;
+      case 'aranya': d = require('./summaries/aranya.json'); break;
+      case 'kishkindha': d = require('./summaries/kishkindha.json'); break;
+      case 'sundara': d = require('./summaries/sundara.json'); break;
+      case 'yuddha': d = require('./summaries/yuddha.json'); break;
+      case 'uttara': d = require('./summaries/uttara.json'); break;
+      default: d = {};
+    }
+    sumCache.set(k, d!);
+  }
+  return d!;
+}
 
 /** Kanda data is required lazily so it is only parsed when that kanda is opened. */
 function loadKanda(k: KandaId): Sarga[] {
@@ -71,12 +91,12 @@ export function valmikiSarga(id: string): SacredText | undefined {
     kind: 'shloka',
     deities: [k === 'sundara' ? 'hanuman' : 'rama'],
     source: 'Valmiki Ramayana · English: M. N. Dutt (1891–94)',
-    intro:
-      n === sargas[0][0]
-        ? meta.summary
-        : en.length
-          ? undefined
-          : { te: 'ఈ సర్గకు ఆంగ్ల అనువాదం ఇంకా జోడించలేదు — మూల శ్లోకాలు సంపూర్ణంగా ఉన్నాయి.', en: 'An English translation is not yet aligned for this sarga — the full original verses are here.' },
+    intro: (() => {
+      const sm = sargaSummaries(k)[String(n)];
+      const noEn = en.length ? '' : '\n\n(ఈ సర్గకు శ్లోకాల వారీ ఆంగ్ల అనువాదం లేదు.)';
+      const noEnEn = en.length ? '' : '\n\n(Verse-by-verse English is not available for this sarga.)';
+      return sm ? { te: `సర్గ సారాంశం: ${sm[0]}${noEn}`, en: `In this sarga: ${sm[1]}${noEnEn}` } : meta.summary;
+    })(),
     verses: te.map((t, i) => ({ te: t, en: en[i] || undefined, ref: `${ki + 1}.${n}.${i + 1}` })),
     nav: {
       prev: prev ? { id: valmikiId(prev[0], prev[1]), label: sargaLabel(prev[0], prev[1]) } : undefined,
