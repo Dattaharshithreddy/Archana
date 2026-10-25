@@ -49,6 +49,8 @@ export type SacredText = {
   lang?: 'sa' | 'hi' | 'te';
   /** Mark content that must be checked by a pandit before store release */
   review?: boolean;
+  /** Generic previous/next navigation shown at the end of the reader */
+  nav?: { prev?: { id: string; label: Bi }; next?: { id: string; label: Bi } };
 };
 
 export type EmblemKind =

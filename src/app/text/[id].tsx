@@ -35,7 +35,7 @@ export default function Reader() {
   const [harathi, setHarathi] = useState(false);
   const [intro, setIntro] = useState(() => {
     const did = text?.deities[0];
-    return !!did && store.intros && !text!.id.startsWith('gita-') && shouldPlayIntro(did, text!.kind === 'vidhanam');
+    return !!did && store.intros && !text!.id.startsWith('gita-') && !text!.id.startsWith('valmiki-') && shouldPlayIntro(did, text!.kind === 'vidhanam');
   });
   const scrollY = useSharedValue(0);
   const listRef = useRef<any>(null);
@@ -79,6 +79,11 @@ export default function Reader() {
         <Text style={styles.titleTe}>{text.title.te}</Text>
         <Text style={styles.titleEn}>{text.title.en}</Text>
         {text.source && <Text style={styles.source}>{text.source}</Text>}
+        {text.review && (
+          <View style={styles.review}>
+            <Text style={styles.reviewText}>పండితుల సమీక్ష పెండింగ్ · Awaiting scholar review — compare with your family's text</Text>
+          </View>
+        )}
       </Animated.View>
       {text.intro && (
         <Animated.View entering={FadeIn.delay(200)} style={styles.intro}>
@@ -189,6 +194,21 @@ export default function Reader() {
                 )}
               </View>
             </View>
+          ) : text.nav ? (
+            <View style={styles.chapNav}>
+              {text.nav.prev && (
+                <Press flex onPress={() => router.replace(`/text/${text.nav!.prev!.id}`)} style={styles.chapBtn}>
+                  <Text style={styles.chapBtnSmall}>← మునుపటి · Previous</Text>
+                  <Text style={styles.chapBtnTe} numberOfLines={1}>{text.nav.prev.label.te}</Text>
+                </Press>
+              )}
+              {text.nav.next && (
+                <Press flex onPress={() => router.replace(`/text/${text.nav!.next!.id}`)} style={[styles.chapBtn, { backgroundColor: accent, borderColor: accent }]}>
+                  <Text style={[styles.chapBtnSmall, { color: C.bg0 }]}>తరువాతి · Next →</Text>
+                  <Text style={[styles.chapBtnTe, { color: C.bg0 }]} numberOfLines={1}>{text.nav.next.label.te}</Text>
+                </Press>
+              )}
+            </View>
           ) : (
             <Text style={styles.end}>॥ ఓం శాంతిః శాంతిః శాంతిః ॥</Text>
           )
@@ -228,6 +248,8 @@ const styles = StyleSheet.create({
   titleTe: { fontFamily: F.teBold, color: C.goldSoft, fontSize: 26, lineHeight: 44, textAlign: 'center', paddingHorizontal: 20, marginTop: 4 },
   titleEn: { fontFamily: F.title, color: C.muted, fontSize: 12.5, letterSpacing: 1.5, textAlign: 'center', paddingHorizontal: 20 },
   source: { fontFamily: F.bodyItalic, color: C.faint, fontSize: 14, marginTop: 4 },
+  review: { marginTop: 8, paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10, borderWidth: 1, borderColor: C.faint },
+  reviewText: { fontFamily: F.body, color: C.faint, fontSize: 12, textAlign: 'center' },
   intro: { marginHorizontal: 20, marginTop: 18, alignItems: 'center' },
   introTe: { fontFamily: F.teSerif, color: C.cream, fontSize: 15, lineHeight: 26, textAlign: 'center' },
   introEn: { fontFamily: F.bodyItalic, color: C.muted, fontSize: 15.5, lineHeight: 21, textAlign: 'center', marginTop: 4 },

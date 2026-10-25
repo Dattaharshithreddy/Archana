@@ -21,6 +21,8 @@ type Store = Settings & {
   isSaved: (id: string) => boolean;
   addJapa: (n: number) => void;
   markRead: (id: string) => void;
+  /** Sargas / chapters opened at least once (for progress marks) */
+  isRead: (id: string) => boolean;
 };
 
 const DEFAULTS: Settings = { script: 'both', meaning: true, fontScale: 1, haptics: true, sound: true, intros: true };
@@ -33,6 +35,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [saved, setSaved] = useState<string[]>([]);
   const [recent, setRecent] = useState<string[]>([]);
   const [japaTotal, setJapaTotal] = useState(0);
+  const [done, setDone] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -44,6 +47,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         setSaved(d.saved ?? []);
         setRecent(d.recent ?? []);
         setJapaTotal(d.japaTotal ?? 0);
+        setDone(d.done ?? []);
       })
       .catch(() => {})
       .finally(() => setReady(true));
@@ -51,8 +55,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!ready) return;
-    AsyncStorage.setItem(KEY, JSON.stringify({ settings, saved, recent, japaTotal })).catch(() => {});
-  }, [ready, settings, saved, recent, japaTotal]);
+    AsyncStorage.setItem(KEY, JSON.stringify({ settings, saved, recent, japaTotal, done })).catch(() => {});
+  }, [ready, settings, saved, recent, japaTotal, done]);
 
   const set = useCallback((patch: Partial<Settings>) => setSettings((s) => ({ ...s, ...patch })), []);
   const toggleSaved = useCallback(
@@ -61,7 +65,10 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   );
   const addJapa = useCallback((n: number) => setJapaTotal((t) => t + n), []);
   const markRead = useCallback(
-    (id: string) => setRecent((r) => [id, ...r.filter((x) => x !== id)].slice(0, 8)),
+    (id: string) => {
+      setRecent((r) => [id, ...r.filter((x) => x !== id)].slice(0, 8));
+      if (id.startsWith('valmiki-')) setDone((d) => (d.includes(id) ? d : [...d, id]));
+    },
     [],
   );
 
@@ -76,8 +83,9 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       isSaved: (id) => saved.includes(id),
       addJapa,
       markRead,
+      isRead: (id) => done.includes(id),
     }),
-    [settings, saved, recent, japaTotal, set, toggleSaved, addJapa, markRead],
+    [settings, saved, recent, japaTotal, done, set, toggleSaved, addJapa, markRead],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

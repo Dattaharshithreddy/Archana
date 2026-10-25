@@ -7,6 +7,13 @@ import { DEVI_OTHERS } from './texts/devi-others';
 import { NITYA_PUJA, DEITY_PUJAS } from './texts/puja';
 import { GITA_TEXTS } from './texts/gita';
 import { RAMAYANA_TEXTS } from './texts/ramayana';
+import { VENKATESA_COMPLETE } from './texts/complete-venkatesa';
+import { DEVI_COMPLETE } from './texts/complete-devi';
+import { AYYAPPA_COMPLETE } from './texts/complete-ayyappa';
+import { ASHTOTTARAMS } from './texts/ashtottaram';
+import { VRATA_KATHAS } from './texts/vrata-kathas';
+import { VISHNU_SAHASRANAMAM } from './texts/vishnu-sahasranamam';
+import { valmikiSarga } from './ramayana/load';
 
 export * from './types';
 export * from './deities';
@@ -14,7 +21,11 @@ export * from './collections';
 export { GITA_CHAPTERS } from './texts/gita';
 export { KANDAS } from './texts/ramayana';
 
-export const TEXTS: SacredText[] = [
+/** Complete versions replace any earlier partial text with the same id. */
+const COMPLETE: SacredText[] = [...VENKATESA_COMPLETE, ...DEVI_COMPLETE, ...AYYAPPA_COMPLETE, ...ASHTOTTARAMS, ...VRATA_KATHAS, VISHNU_SAHASRANAMAM];
+const COMPLETE_IDS = new Set(COMPLETE.map((t) => t.id));
+
+const BASE: SacredText[] = [
   NITYA_PUJA,
   ...DAILY,
   ...GANESHA_SHIVA,
@@ -26,8 +37,13 @@ export const TEXTS: SacredText[] = [
   ...RAMAYANA_TEXTS,
 ];
 
+export const TEXTS: SacredText[] = [
+  ...BASE.map((t) => (COMPLETE_IDS.has(t.id) ? COMPLETE.find((c) => c.id === t.id)! : t)),
+  ...COMPLETE.filter((c) => !BASE.some((t) => t.id === c.id)),
+];
+
 const BY_ID = new Map(TEXTS.map((t) => [t.id, t]));
-export const textById = (id: string) => BY_ID.get(id);
+export const textById = (id: string) => BY_ID.get(id) ?? (id.startsWith('valmiki-') ? valmikiSarga(id) : undefined);
 
 export const textsForDeity = (deityId: string) =>
   TEXTS.filter((t) => t.deities.includes(deityId) && !t.id.startsWith('gita-') && t.kind !== 'vidhanam');

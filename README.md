@@ -7,12 +7,13 @@ All your daily mantras, puja vidhanams, festival and deeksha guides, the Bhagava
 | | |
 |---|---|
 | Deities | 13: Ganesha, Shiva, Vishnu, Venkateswara, Rama, Krishna, Hanuman, Lakshmi, Saraswati, Durga, Subrahmanya, Ayyappa, Surya. Each has an animated darshan, an about section, puja, japa and aarti |
-| Texts | 71 texts and about 580 verses/steps: daily shlokas, mantras, stotras, keertanas |
+| Texts | 89 texts: daily shlokas, mantras, stotras, keertanas — including the complete Venkatesa Suprabhatam, Vishnu Sahasranamam (purva bhaga, 108 shlokas, uttara bhaga), Mahishasura Mardini, Ya Devi Sarvabhuteshu, Govinda Namalu, Ayyappa Sharanu Ghosha (108), and an Ashtottara Shatanamavali (108 names) for each of the 13 deities |
 | Puja vidhanam | Full shodashopachara (16-step) puja generated for every deity. Each step shows **what to do** above **what to say** |
-| Festivals | 12, each with samagri checklist, steps and linked mantras: Ugadi, Rama Navami, Varalakshmi Vratam, Krishnashtami, Vinayaka Chavithi, Dasara, Deepavali, Karthika, Sankranti, Shivaratri, Vaikuntha Ekadashi, Ratha Saptami |
+| Vrata kathas | Vinayaka Chavithi (with Syamantaka story), Varalakshmi, Satyanarayana (all five chapters) — Telugu + English |
+| Festivals | 13, each with samagri checklist, steps and linked mantras: Ugadi, Rama Navami, Varalakshmi Vratam, Krishnashtami, Vinayaka Chavithi, Dasara, Deepavali, Karthika, Sankranti, Shivaratri, Vaikuntha Ekadashi, Ratha Saptami, Satyanarayana Vratam |
 | Deekshas | 4, each with rules, steps and mantras: Ayyappa, Hanuman, Bhavani, Shiva |
-| Bhagavad Gita | Gita Dhyanam, all 18 chapters with summaries and 40 key verses |
-| Ramayana | Seven-kanda story, Valmiki's opening verses, Sundarakanda shlokas, Hanuman Chalisa |
+| Bhagavad Gita | Gita Dhyanam and all 701 verses of the 18 chapters, each with a simple English and Telugu explanation |
+| Ramayana | The **complete Valmiki Ramayana**: 7 kandas, 645 sargas, 23,334 shlokas in Telugu script, with M. N. Dutt's English translation for 522 sargas. Plus the kanda-by-kanda story, Sundarakanda shlokas and Hanuman Chalisa |
 | Tools | Japa mala counter (108 beads, haptics, lifetime count), animated aarti mode, bookmarks, recently read, full-text search (Telugu or English spelling), font size, script toggle, screen stays awake while reading |
 
 ## Tech stack
@@ -53,11 +54,17 @@ Package name: `com.harshith.archana` (change it in `app.json` before the first u
 Sacred text must be exact. Every verse here was written carefully, but a pandit or a trusted printed source should check **all** of it, especially these items marked `review: true`:
 
 - `nitya-puja` and all `puja-*` vidhanams (sankalpam wording varies by tradition)
-- `venkatesa-suprabhatam`, `govinda-namalu`, `adivo-alladivo` (opening portions only)
+- `venkatesa-suprabhatam`, `govinda-namalu`, `adivo-alladivo`, `vishnu-sahasranamam`
 - `hanuman-chalisa` (Awadhi in Telugu script; spellings differ between printed editions)
-- `mahishasura-mardini` (first verse only), `ayyappa-mantras`, `ayyappa-mala-dharana`
+- `mahishasura-mardini`, `ya-devi-sarvabhuteshu`, `ayyappa-mantras`, `ayyappa-mala-dharana`, `ayyappa-sharanu-ghosha` (sharanam lists vary by guruswamy)
+- all 13 `ashtottaram-*` lists (name order and spellings vary between printed editions)
+- `vinayaka-vrata-katha`, `varalakshmi-vrata-katha`, `satyanarayana-vrata-katha` (retold in this app's own words)
 
-All texts included are traditional and public domain: Vedic and Puranic verses, Adi Shankara, Tulsidas, Annamacharya and Vallabhacharya. The English meanings and all guide text are original to this app. Don't paste translations from modern books or websites, because those are copyrighted.
+These show a small "awaiting scholar review" badge in the reader until checked; remove `review: true` once a pandit approves a text.
+
+All texts included are traditional and public domain: Vedic and Puranic verses, Adi Shankara, Tulsidas, Annamacharya and Vallabhacharya.
+
+**Data credits.** Bhagavad Gita Sanskrit: [gita/gita](https://github.com/gita/gita) (Unlicense). Valmiki Ramayana Sanskrit: [Ramayana Book](https://github.com/svenkatreddy/Ramayana_Book) (from Sanskrit Wikisource; three chapters from IIT Kanpur), converted to Telugu script. Ramayana English: M. N. Dutt (1891–94, public domain) via the [Valmiki Ramayan Dataset](https://github.com/Ashutosh-Vijay/Valmiki_Ramayan_Dataset) (MIT). Build scripts convert Devanagari to Telugu script and normalise punctuation; the text is otherwise unchanged. The English meanings and all guide text are original to this app. Don't paste translations from modern books or websites, because those are copyrighted.
 
 ## Adding content
 
@@ -70,7 +77,7 @@ Everything lives in `src/data/`:
 
 ## Roadmap ideas
 
-1. **Full texts**: all 700 Gita verses; full Suprabhatam, Vishnu Sahasranamam, Lalita Sahasranamam, and Ashtottarams for each deity
+1. **More texts**: Lalita Sahasranamam, Aditya Hrudayam, Kanakadhara Stotram; Telugu bhavam for every Ramayana shloka
 2. **Illustrated deity art**: commission an artist and drop in Lottie or Rive animations per deity. The `DivineAura` component already frames them
 3. **Audio**: recorded chanting with verse-synced highlighting (expo-audio)
 4. **Panchangam**: today's tithi and nakshatra, upcoming festival dates and reminder notifications
