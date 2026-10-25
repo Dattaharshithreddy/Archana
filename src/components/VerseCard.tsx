@@ -48,7 +48,7 @@ export const VerseCard = memo(function VerseCard({ verse, index, script, meaning
         </View>
       )}
 
-      {verse.te && (
+      {(verse.te || verse.bhavam || verse.en) && (
         <View style={styles.verse}>
           {verse.ref && <Text style={styles.ref}>{verse.ref}</Text>}
           {showTe && (
@@ -68,8 +68,8 @@ export const VerseCard = memo(function VerseCard({ verse, index, script, meaning
               {transliterate(verse.te!, { hindi })}
             </Text>
           )}
-          {meaning && verse.bhavam && (
-            <View style={styles.meaning}>
+          {(meaning || !verse.te) && verse.bhavam && (
+            <View style={[styles.meaning, !verse.te && styles.meaningFirst]}>
               <View style={[styles.meaningBar, { backgroundColor: accent }]} />
               <View style={{ flex: 1 }}>
                 <Text style={[styles.label, { color: accent }]}>భావం</Text>
@@ -77,8 +77,8 @@ export const VerseCard = memo(function VerseCard({ verse, index, script, meaning
               </View>
             </View>
           )}
-          {meaning && verse.en && (
-            <View style={[styles.meaning, verse.bhavam && styles.meaningTight]}>
+          {(meaning || !verse.te) && verse.en && (
+            <View style={[styles.meaning, verse.bhavam && styles.meaningTight, !verse.te && !verse.bhavam && styles.meaningFirst]}>
               <View style={[styles.meaningBar, { backgroundColor: accent }]} />
               <View style={{ flex: 1 }}>
                 {verse.bhavam && <Text style={[styles.label, { color: accent }]}>MEANING</Text>}
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
   meaningBar: { width: 3, borderRadius: 2, opacity: 0.8 },
   en: { flex: 1, fontFamily: F.body, color: C.muted },
   meaningTight: { marginTop: 10, paddingTop: 10 },
+  meaningFirst: { marginTop: 0, paddingTop: 0, borderTopWidth: 0 },
   label: { fontFamily: F.teBold, fontSize: 11.5, letterSpacing: 1, lineHeight: 20, marginBottom: 2 },
   bhavam: { fontFamily: F.teSerif, color: C.cream },
   note: { marginTop: 16, padding: 14, borderRadius: 16, borderWidth: 1, borderStyle: 'dashed', backgroundColor: 'rgba(232,184,74,0.06)' },

@@ -115,9 +115,20 @@ export function valmikiSarga(id: string): SacredText | undefined {
       const sm = sargaSummaries(k)[String(n)];
       const noEn = en.length ? '' : '\n\n(ఈ సర్గకు శ్లోకాల వారీ ఆంగ్ల అనువాదం లేదు.)';
       const noEnEn = en.length ? '' : '\n\n(Verse-by-verse English is not available for this sarga.)';
+      if (!te.length)
+        return {
+          te: `సర్గ సారాంశం: ${sm?.[0] ?? ''}\n\n(ఈ సర్గ మూల సంస్కృత శ్లోకాలు మా మూల గ్రంథంలో లేవు. ఆంగ్ల అనువాదం, దాని తెలుగు భావం ఇక్కడ ఇవ్వబడ్డాయి.)`,
+          en: `In this sarga: ${sm?.[1] ?? ''}\n\n(The Sanskrit of this sarga is missing from our source edition, so the English translation and its Telugu bhavam are given.)`,
+        };
       return sm ? { te: `సర్గ సారాంశం: ${sm[0]}${noEn}`, en: `In this sarga: ${sm[1]}${noEnEn}` } : meta.summary;
     })(),
-    verses: te.map((t, i) => ({ te: t, en: en[i] || undefined, bhavam: sargaBhavam(k)[String(n)]?.[i] || undefined, ref: `${ki + 1}.${n}.${i + 1}` })),
+    // A few sargas (Sundarakanda 19–20) have no Sanskrit in the source; their verses carry English + bhavam only.
+    verses: Array.from({ length: Math.max(te.length, en.length) }, (_, i) => ({
+      te: te[i] || undefined,
+      en: en[i] || undefined,
+      bhavam: sargaBhavam(k)[String(n)]?.[i] || undefined,
+      ref: `${ki + 1}.${n}.${i + 1}`,
+    })),
     nav: {
       prev: prev ? { id: valmikiId(prev[0], prev[1]), label: sargaLabel(prev[0], prev[1]) } : undefined,
       next: next ? { id: valmikiId(next[0], next[1]), label: sargaLabel(next[0], next[1]) } : undefined,
