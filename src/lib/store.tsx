@@ -8,6 +8,8 @@ type Settings = {
   meaning: boolean;
   fontScale: number;
   haptics: boolean;
+  sound: boolean;
+  intros: boolean;
 };
 
 type Store = Settings & {
@@ -21,7 +23,7 @@ type Store = Settings & {
   markRead: (id: string) => void;
 };
 
-const DEFAULTS: Settings = { script: 'both', meaning: true, fontScale: 1, haptics: true };
+const DEFAULTS: Settings = { script: 'both', meaning: true, fontScale: 1, haptics: true, sound: true, intros: true };
 const KEY = 'archana.v1';
 
 const Ctx = createContext<Store | null>(null);

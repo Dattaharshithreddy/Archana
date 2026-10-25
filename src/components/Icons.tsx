@@ -95,3 +95,16 @@ export const ChevronIcon = ({ size = 18, color = C.faint }: P) => (
     <Path d="M9 5l7 7-7 7" stroke={color} strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round" />
   </Svg>
 );
+
+export const GearIcon = ({ size = 22, color = C.cream }: P) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24">
+    <Circle cx={12} cy={12} r={3.2} stroke={color} strokeWidth={1.7} fill="none" />
+    <Path
+      d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"
+      stroke={color}
+      strokeWidth={1.7}
+      strokeLinecap="round"
+    />
+    <Circle cx={12} cy={12} r={6.4} stroke={color} strokeWidth={1.4} fill="none" opacity={0.6} />
+  </Svg>
+);

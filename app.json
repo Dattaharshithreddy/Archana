@@ -34,7 +34,8 @@
           "image": "./assets/splash-icon.png",
           "imageWidth": 160
         }
-      ]
+      ],
+      "expo-audio"
     ],
     "scheme": "archana",
     "backgroundColor": "#10050C",

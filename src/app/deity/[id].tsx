@@ -5,6 +5,8 @@ import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Harathi } from '../../components/Harathi';
+import { DeityIntro } from '../../components/intros/DeityIntro';
+import { shouldPlayIntro } from '../../lib/introSession';
 import { Backdrop, DivineAura, PetalShower } from '../../components/Sacred';
 import { Header, Press, SectionTitle, TextRow } from '../../components/UI';
 import { ALL_COLLECTIONS, deityById, textsForDeity } from '../../data';
@@ -15,7 +17,8 @@ export default function DeityScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const d = deityById(id);
   const insets = useSafeAreaInsets();
-  const { haptics } = useStore();
+  const { haptics, sound, intros } = useStore();
+  const [intro, setIntro] = useState(() => intros && !!id && shouldPlayIntro(id, true));
   const [harathi, setHarathi] = useState(false);
   const [petals, setPetals] = useState(1);
   if (!d) return <Header title={{ te: 'దొరకలేదు', en: 'Not found' }} />;
@@ -81,6 +84,7 @@ export default function DeityScreen() {
         )}
       </ScrollView>
       <Harathi visible={harathi} onClose={() => setHarathi(false)} deity={d} haptics={haptics} />
+      {intro && <DeityIntro deity={d} sound={sound} haptics={haptics} onDone={() => setIntro(false)} />}
     </View>
   );
 }

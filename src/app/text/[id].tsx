@@ -6,6 +6,8 @@ import Animated, { FadeIn, interpolate, useAnimatedScrollHandler, useAnimatedSty
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Harathi } from '../../components/Harathi';
+import { DeityIntro } from '../../components/intros/DeityIntro';
+import { shouldPlayIntro } from '../../lib/introSession';
 import { BookmarkIcon, FlameIcon } from '../../components/Icons';
 import { Backdrop, DivineAura } from '../../components/Sacred';
 import { Header, IconButton, Press } from '../../components/UI';
@@ -30,6 +32,10 @@ export default function Reader() {
   const store = useStore();
   const insets = useSafeAreaInsets();
   const [harathi, setHarathi] = useState(false);
+  const [intro, setIntro] = useState(() => {
+    const did = text?.deities[0];
+    return !!did && store.intros && !text!.id.startsWith('gita-') && shouldPlayIntro(did, text!.kind === 'vidhanam');
+  });
   const scrollY = useSharedValue(0);
 
   useEffect(() => {
@@ -144,6 +150,7 @@ export default function Reader() {
         </View>
       )}
       <Harathi visible={harathi} onClose={() => setHarathi(false)} deity={deity} haptics={store.haptics} />
+      {intro && <DeityIntro deity={deity} sound={store.sound} haptics={store.haptics} onDone={() => setIntro(false)} />}
     </View>
   );
 }

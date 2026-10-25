@@ -7,7 +7,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Emblem } from '../components/Emblem';
 import { Backdrop, DivineAura, Diya } from '../components/Sacred';
-import { Dock, Press, SectionTitle, TextRow } from '../components/UI';
+import { GearIcon } from '../components/Icons';
+import { Dock, IconButton, Press, SectionTitle, TextRow } from '../components/UI';
 import { DEITIES, FESTIVALS, WEEKDAY_DEITY, WEEKDAY_NAMES, deityById, textById } from '../data';
 import type { EmblemKind } from '../data/types';
 import { useStore } from '../lib/store';
@@ -51,6 +52,11 @@ export default function Home() {
             </Text>
           </View>
           <Diya size={46} />
+          <View style={{ marginLeft: 10 }}>
+            <IconButton label="Settings" onPress={() => router.push('/settings')}>
+              <GearIcon />
+            </IconButton>
+          </View>
         </Animated.View>
 
         {/* Today's darshan */}
