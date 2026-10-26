@@ -13,7 +13,7 @@ All your daily mantras, puja vidhanams, festival and deeksha guides, the Bhagava
 | Festivals | 13, each with samagri checklist, steps and linked mantras: Ugadi, Rama Navami, Varalakshmi Vratam, Krishnashtami, Vinayaka Chavithi, Dasara, Deepavali, Karthika, Sankranti, Shivaratri, Vaikuntha Ekadashi, Ratha Saptami, Satyanarayana Vratam |
 | Deekshas | 4, each with rules, steps and mantras: Ayyappa, Hanuman, Bhavani, Shiva |
 | Bhagavad Gita | Gita Dhyanam and all 701 verses of the 18 chapters, each with a simple English and Telugu explanation |
-| Ramayana | The **complete Valmiki Ramayana**: 7 kandas, 645 sargas, 23,324 shlokas in Telugu script, a Telugu and English summary of every sarga, and M. N. Dutt's English translation where it lines up verse by verse (513 sargas). **Balakanda and Sundarakanda have a Telugu భావం for every shloka**; the other kandas are being added kanda by kanda. Sundarakanda sargas 19–20 are missing from the source Sanskrit, so they show the English with a Telugu భావం; Balakanda 57–58 were swapped in the source and are restored to the standard order. Plus the kanda-by-kanda story, Sundarakanda shlokas and Hanuman Chalisa |
+| Ramayana | The **complete Valmiki Ramayana**: 7 kandas, 645 sargas, 23,324 shlokas in Telugu script, a Telugu and English summary of every sarga, and M. N. Dutt's English translation where it lines up verse by verse (513 sargas). **Balakanda, Ayodhyakanda and Sundarakanda have a Telugu భావం for every shloka**; the other kandas are being added kanda by kanda. Sundarakanda sargas 19–20 are missing from the source Sanskrit, so they show the English with a Telugu భావం; Balakanda 57–58 were swapped in the source and are restored to the standard order. Plus the kanda-by-kanda story, Sundarakanda shlokas and Hanuman Chalisa |
 | Tools | Japa mala counter (108 beads, haptics, lifetime count), animated aarti mode, bookmarks, recently read, full-text search (Telugu or English spelling), font size, script toggle, screen stays awake while reading |
 
 ## Tech stack
@@ -77,7 +77,7 @@ Everything lives in `src/data/`:
 
 ## Roadmap ideas
 
-1. **More texts**: Subrahmanya Bhujangam, Shiva Sahasranamam; Telugu bhavam for the remaining five Ramayana kandas
+1. **More texts**: Subrahmanya Bhujangam, Shiva Sahasranamam; Telugu bhavam for the remaining four Ramayana kandas
 2. **Illustrated deity art**: commission an artist and drop in Lottie or Rive animations per deity. The `DivineAura` component already frames them
 3. **Audio**: recorded chanting with verse-synced highlighting (expo-audio)
 4. **Panchangam**: today's tithi and nakshatra, upcoming festival dates and reminder notifications
