@@ -17,6 +17,8 @@ import { valmikiSarga } from './ramayana/load';
 import { MORE_STOTRAS } from './texts/stotras-more';
 import { LALITA_SAHASRANAMAM } from './texts/lalita-sahasranamam';
 import { SRI_RUDRAM } from './texts/rudram';
+import { SONGS } from './texts/songs';
+import { AYYAPPA_SONGS } from './texts/songs-ayyappa';
 
 export * from './types';
 export * from './deities';
@@ -38,6 +40,8 @@ const BASE: SacredText[] = [
   ...DEITY_PUJAS,
   ...GITA_TEXTS,
   ...RAMAYANA_TEXTS,
+  ...AYYAPPA_SONGS,
+  ...SONGS,
 ];
 
 export const TEXTS: SacredText[] = [
@@ -63,3 +67,7 @@ export const DAILY_ORDER: { slot: NonNullable<SacredText['daily']>; label: { te:
 export const dailyTexts = () => TEXTS.filter((t) => t.daily);
 
 export const STOTRAS = () => TEXTS.filter((t) => t.kind === 'stotram' || t.kind === 'keertana');
+
+/** Devotional songs, grouped by deity in the Songs screen (primary deity = first in `deities`). */
+const SONG_IDS = new Set([...AYYAPPA_SONGS, ...SONGS].map((t) => t.id));
+export const SONG_TEXTS = () => TEXTS.filter((t) => SONG_IDS.has(t.id) || t.kind === 'keertana');

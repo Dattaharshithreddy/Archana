@@ -27,6 +27,7 @@ const TILES: { href: string; te: string; en: string; emblem: EmblemKind; accent:
   { href: '/ramayana', te: 'రామాయణం', en: 'Ramayana', emblem: 'bow', accent: '#7FE0A8', colors: ['#123A2A', '#061A12'] },
   { href: '/festivals', te: 'పండుగలు', en: 'Festivals', emblem: 'sun', accent: '#FFD24A', colors: ['#553108', '#221203'] },
   { href: '/deekshas', te: 'దీక్షలు', en: 'Deekshas', emblem: 'steps', accent: '#FFB000', colors: ['#2C2416', '#0E0B06'] },
+  { href: '/songs', te: 'భక్తి పాటలు', en: 'Bhakti Songs', emblem: 'veena', accent: '#FFB38A', colors: ['#4A1F12', '#1E0B05'] },
   { href: '/stotras', te: 'స్తోత్రాలు', en: 'Stotras & Songs', emblem: 'veena', accent: '#E6EEFF', colors: ['#252B4D', '#0C0F22'] },
 ];
 
