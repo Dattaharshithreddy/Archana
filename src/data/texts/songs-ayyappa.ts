@@ -127,8 +127,8 @@ export const AYYAPPA_SONGS: SacredText[] = [
       {
         heading: b('హరివరాసనం', 'Harivarasanam'),
         step: b(
-          'సంప్రదాయం ప్రకారం పూజ చివర శబరిమలలో పాడే "హరివరాసనం" (స్వామి నిద్ర పాట) పాడి, దీపాలు ఒక్కొక్కటిగా శాంతింపజేస్తారు. (ఈ పాట సాహిత్యం యాప్‌లో లేదు.)',
-          'By tradition the puja closes with “Harivarasanam”, the Sabarimala lullaby, as the lamps are put out one by one. (Its lyrics are not included in the app.)',
+          'సంప్రదాయం ప్రకారం పూజ చివర శబరిమలలో పాడే "హరివరాసనం" (స్వామి నిద్ర పాట) పాడి, దీపాలు ఒక్కొక్కటిగా శాంతింపజేస్తారు. (ఈ పాట సాహిత్యం యాప్‌లో లేదు — అర్థం కోసం "హరివరాసనం — అర్థం, సంప్రదాయం" చూడండి.)',
+          'By tradition the puja closes with “Harivarasanam”, the Sabarimala lullaby, as the lamps are put out one by one. (Its lyrics are not in the app — see “Harivarasanam — Meaning & Tradition”.)',
         ),
       },
       {
@@ -141,6 +141,54 @@ export const AYYAPPA_SONGS: SacredText[] = [
       {
         heading: b('సాష్టాంగ నమస్కారం', 'Prostration'),
         step: b('అందరూ పడి ముందు సాష్టాంగ నమస్కారం చేసి, ప్రసాదం స్వీకరించండి.', 'All prostrate before the steps, then receive prasadam.'),
+        te: 'స్వామియే శరణం అయ్యప్ప',
+        en: 'O Lord Ayyappa, you are my refuge.',
+        repeat: 3,
+      },
+    ],
+  },
+  {
+    id: 'harivarasanam-about',
+    title: b('హరివరాసనం — అర్థం, సంప్రదాయం', 'Harivarasanam — Meaning & Tradition'),
+    kind: 'guide',
+    deities: ['ayyappa'],
+    review: true,
+    source: 'About the song; lyrics not included (copyright). Sing along from your book or the recording.',
+    intro: b(
+      'హరివరాసనం శబరిమలలో ప్రతి రాత్రి గుడి తలుపులు మూసే ముందు పాడే అయ్యప్ప స్వామి నిద్ర పాట (ఉరక్కుపాట్టు). ఎనిమిది శ్లోకాల సంస్కృత స్తుతి — ప్రతి శ్లోకం చివర "శరణం అయ్యప్ప స్వామి శరణం అయ్యప్ప" అనే పల్లవి. పాట సాహిత్యం ఈ యాప్‌లో లేదు; మీ పుస్తకం నుండి లేదా రికార్డింగ్‌తో కలిసి పాడండి.',
+      'Harivarasanam is the lullaby (urakkupattu) sung at Sabarimala every night before the temple doors close. It is a Sanskrit hymn of eight verses, each ending with the refrain “Sharanam Ayyappa Swamy Sharanam Ayyappa”. The lyrics are not in the app — sing along from your book or the recording.',
+    ),
+    verses: [
+      {
+        heading: b('ఎప్పుడు పాడతారు', 'When it is sung'),
+        step: b(
+          'శబరిమలలో రాత్రి అత్తాళ పూజ తర్వాత, గర్భగుడి దీపాలు ఒక్కొక్కటిగా శాంతింపజేస్తూ పాడతారు; పాట ముగిసేసరికి తలుపులు మూస్తారు. ఇంట్లో, భజన మందిరాల్లో — పడి పూజ, సాయంత్రం దీక్షా పూజ, భజన చివర పాడతారు. పాడేటప్పుడు అందరూ నిలబడి, చేతులు జోడించి, మౌనంగా వింటారు లేదా కలిసి పాడతారు.',
+          'At Sabarimala it is sung after the night Athazha puja while the sanctum lamps are put out one by one; the doors close as it ends. At home and in bhajan mandirs it closes padi puja, the evening deeksha puja and bhajans. Everyone stands with folded hands and listens quietly or sings together.',
+        ),
+      },
+      {
+        heading: b('ఏమి స్తుతిస్తుంది', 'What it praises'),
+        step: b(
+          'పాట మొత్తం స్వామిని నిద్రపుచ్చే లాలి భావంలో ఉంటుంది. శ్లోకాలు అయ్యప్పను — హరి (విష్ణువు), హరుడు (శివుడు) ఇద్దరి పుత్రునిగా; విశ్వాన్ని మోహింపజేసే సౌందర్యం గలవానిగా; భక్తుల శత్రువులను, మహిషిని జయించిన వీరునిగా; పులిపై, గుర్రంపై స్వారీ చేసేవానిగా; భక్తుల హృదయాల్లో నివసించే, కోరికలు తీర్చే, సంగీతాన్ని ప్రేమించే దేవునిగా; పంపా తీరాన శబరిగిరిపై వెలసిన వానిగా వర్ణిస్తాయి.',
+          'The whole hymn is a lullaby that lays the Lord to rest. Its verses praise Ayyappa as the son of Hari (Vishnu) and Hara (Shiva); of a beauty that enchants the universe; the hero who defeated Mahishi and the foes of his devotees; who rides the tiger and the horse; who lives in his devotees’ hearts, fulfils their wishes and delights in music; and who dwells on Sabari hill by the Pampa.',
+        ),
+      },
+      {
+        heading: b('పల్లవి', 'The refrain'),
+        te: 'శరణం అయ్యప్ప స్వామి శరణం అయ్యప్ప',
+        en: 'Refuge, Ayyappa — Lord, you are my refuge, Ayyappa.',
+        bhavam: 'అయ్యప్ప స్వామీ, నువ్వే నాకు శరణు. ప్రతి శ్లోకం చివర అందరూ కలిసి పలుకుతారు.',
+      },
+      {
+        heading: b('చరిత్ర', 'History'),
+        step: b(
+          'రచయిత విషయంలో రెండు అభిప్రాయాలు ఉన్నాయి — 1923లో కొన్నకత్తు జానకి అమ్మ రాశారని, లేదా కుంబకుడి కులత్తూర్ శ్రీనివాస అయ్యర్ రాశారని. 1950ల నుండి శబరిమలలో దీనిని నిద్ర పాటగా పాడుతున్నారు. 1975లో "స్వామి అయ్యప్పన్" చిత్రంలో కె.జె. యేసుదాస్ పాడిన రూపమే నేడు శబరిమలలో ప్రతి రాత్రి వినిపిస్తుంది.',
+          'Two accounts exist of its author — Konnakathu Janaki Amma in 1923, or Kumbakudi Kulathur Srinivasa Iyer. It has been sung as the Lord’s lullaby at Sabarimala since the 1950s. The rendition by K. J. Yesudas, recorded for the 1975 film “Swamy Ayyappan”, is the one played at Sabarimala every night today.',
+        ),
+      },
+      {
+        heading: b('ముగింపు', 'Closing'),
+        step: b('పాట తర్వాత సాష్టాంగ నమస్కారం చేసి "స్వామియే శరణం అయ్యప్ప" అని మూడుసార్లు పలకండి.', 'After the song, prostrate and call “Swamiye Sharanam Ayyappa” three times.'),
         te: 'స్వామియే శరణం అయ్యప్ప',
         en: 'O Lord Ayyappa, you are my refuge.',
         repeat: 3,
